@@ -16,7 +16,7 @@ object brainfuckInterpreter extends (BrainfuckRuntime => BrainfuckRuntime) {
       case "+" => runtime.incMemory
       case "-" => runtime.decrMemory
       case "." => runtime.printMemToANSIChar
-      case "," =>
+      case "," => runtime.inputASCIIChar(runtime.retrieveParams.readArg)
       case "[" =>
         if (runtime.getCurrentMemBlock == 0) {
           runtime.retrieveParams.incrementPosition
