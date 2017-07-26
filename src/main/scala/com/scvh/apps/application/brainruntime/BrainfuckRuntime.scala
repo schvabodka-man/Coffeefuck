@@ -10,9 +10,9 @@ class BrainfuckRuntime(program: String) {
 
   def getCurrentMemBlock: Byte = mem(memoryPoint)
 
-  def incMemory = mem(memoryPoint) == mem(memoryPoint) + 1
+  def incMemory = mem.update(memoryPoint, (mem(memoryPoint) + 1).toByte)
 
-  def decrMemory = mem(memoryPoint) == mem(memoryPoint) + 1
+  def decrMemory = mem.update(memoryPoint, (mem(memoryPoint) - 1).toByte)
 
   def moveCaretForward = memoryPoint = if (memoryPoint == 65534) 0 else memoryPoint + 1
 

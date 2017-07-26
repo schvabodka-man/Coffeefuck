@@ -11,9 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner
 class BrainfuckInterpreterTest extends FlatSpec {
 
   private val BRAINFUCK_HELLO_WORLD = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>."
-  private val SIMPLE_BRAINFUCK_APP = "++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++--."
+  private val SIMPLE_BRAINFUCK_APP = "++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++--.<."
 
   "interpreter" should "run simple app without loops and input" in {
-    assert(brainfuckInterpreter(new BrainfuckRuntime(SIMPLE_BRAINFUCK_APP)).output == "$*\"")
+    assert(brainfuckInterpreter(new BrainfuckRuntime(SIMPLE_BRAINFUCK_APP)).output == "$*!*")
   }
 }
