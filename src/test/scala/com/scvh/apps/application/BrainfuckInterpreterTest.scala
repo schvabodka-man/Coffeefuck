@@ -1,17 +1,17 @@
 package com.scvh.apps.application
 
-import junit.framework.Test
 import org.junit.runner.RunWith
+import org.scalatest.FlatSpec
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(classOf[SpringRunner])
 @SpringBootTest
-class BrainfuckInterpreterTest {
+class BrainfuckInterpreterTest extends FlatSpec {
 
+  private val BRAINFUCK_HELLO_WORLD = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>."
 
-  @Test
-  def testSimpleCode() {
+  "interpreter" should "run hello world" in {
 
   }
 }
