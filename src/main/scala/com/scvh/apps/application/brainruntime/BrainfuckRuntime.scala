@@ -1,12 +1,12 @@
 package com.scvh.apps.application.brainruntime
 
 
-class BrainfuckRuntime(program: String) {
+class BrainfuckRuntime(brainfuckMachineParameters: BrainfuckMachineParameters) {
   var memoryPoint = 0
   var output = ""
   var mem = new Array[Byte](65535)
 
-  def retrieveProgram: String = program
+  def retrieveParams: BrainfuckMachineParameters = brainfuckMachineParameters
 
   def getCurrentMemBlock: Byte = mem(memoryPoint)
 
