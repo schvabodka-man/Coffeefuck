@@ -18,6 +18,7 @@ class BrainfuckRuntime(program: String) {
 
   def moveCaretBackward = memoryPoint = if (memoryPoint == 0) 65534 else memoryPoint - 1
 
-  def printMemToANSIChar = output = output + String.valueOf(Character.toChars(mem(memoryPoint)))
+  def printMemToANSIChar = output = output + mem(memoryPoint).toChar
 
+  def inputASCIIChar(char: Char) = mem.update(memoryPoint, char.toByte)
 }

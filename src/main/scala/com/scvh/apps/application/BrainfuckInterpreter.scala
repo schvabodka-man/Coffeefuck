@@ -5,29 +5,31 @@ import com.scvh.apps.application.brainruntime.BrainfuckRuntime
 object brainfuckInterpreter extends (BrainfuckRuntime => BrainfuckRuntime) {
 
   override def apply(runtime: BrainfuckRuntime): BrainfuckRuntime = {
-    runtime.retrieveProgram.map(c => executeCode(c.toString, runtime))
+    var looper = 0
+    runtime.retrieveProgram.foreach(c => {
+      c.toString match {
+        case ">" => runtime.moveCaretForward
+        case "<" => runtime.moveCaretBackward
+        case "+" => runtime.incMemory
+        case "-" => runtime.decrMemory
+        case "." => runtime.printMemToANSIChar
+        case "," =>
+        case "[" =>
+          if (runtime.getCurrentMemBlock == 0) {
+            while (looper > 0 || c.toString != "]") {
+              if (c.toString != "[") looper += 1
+              if (c.toString != "]") looper -= 1
+            }
+          }
+        case "]" =>
+          if (runtime.getCurrentMemBlock != 0) {
+            while (looper > 0 || c.toString != "[") {
+              if (c.toString != "]") looper += 1
+              if (c.toString != "[") looper -= 1
+            }
+          }
+      }
+    })
     runtime
   }
-
-  def executeCode(c: String, runtime: BrainfuckRuntime) = {
-    if (c == ">") {
-      runtime.moveCaretForward
-    } else if (c == "<") {
-      runtime.moveCaretBackward
-    } else if (c == "+") {
-      runtime.incMemory
-    } else if (c == "-") {
-      runtime.decrMemory
-    } else if (c == ".") {
-      runtime.printMemToANSIChar
-    } else if (c == ",") {
-
-    } else if (c == "[") {
-
-    } else if (c == "]") {
-
-    }
-  }
-
 }
-

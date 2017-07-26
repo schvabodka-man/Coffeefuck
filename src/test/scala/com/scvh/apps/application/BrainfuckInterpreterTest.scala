@@ -16,4 +16,12 @@ class BrainfuckInterpreterTest extends FlatSpec {
   "interpreter" should "run simple app without loops and input" in {
     assert(brainfuckInterpreter(new BrainfuckRuntime(SIMPLE_BRAINFUCK_APP)).output == "$*!*")
   }
+
+  "interpeter" should "read input and print it" in {
+
+  }
+
+  "interpreter" should "execute hello world with loops" in {
+    assert(brainfuckInterpreter(new BrainfuckRuntime(BRAINFUCK_HELLO_WORLD)).output == "Hello World!")
+  }
 }
