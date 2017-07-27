@@ -1,6 +1,6 @@
 package com.scvh.apps.application
 
-import com.scvh.apps.application.brainruntime.{BrainfuckMachineParameters, BrainfuckRuntime}
+import com.scvh.apps.application.brainruntime.BrainfuckMachineParameters
 import org.junit.runner.RunWith
 import org.scalatest.FlatSpec
 import org.springframework.boot.test.context.SpringBootTest
@@ -16,18 +16,18 @@ class BrainfuckInterpreterTest extends FlatSpec {
   private val CAT_APP = ",.,."
 
   "interpreter" should "run simple app without loops and input" in {
-    assert(brainfuckInterpreter(new BrainfuckRuntime(new BrainfuckMachineParameters(SIMPLE_BRAINFUCK_APP, ""))).output == "$*!*")
+    assert(brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(SIMPLE_BRAINFUCK_APP, ""))).output == "$*!*")
   }
 
   "interpeter" should "read input and print it" in {
-    assert(brainfuckInterpreter(new BrainfuckRuntime(new BrainfuckMachineParameters(CAT_APP, "ab"))).output == "ab")
+    assert(brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(CAT_APP, "ab"))).output == "ab")
   }
 
   "interpreter" should "execute hello world with loops" in {
-    assert(brainfuckInterpreter(new BrainfuckRuntime(new BrainfuckMachineParameters(BRAINFUCK_HELLO_WORLD, ""))).output == "Hello World!\n")
+    assert(brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(BRAINFUCK_HELLO_WORLD, ""))).output == "Hello World!\n")
   }
 
   "interpreter" should "print 165" in {
-    assert(brainfuckInterpreter(new BrainfuckRuntime(new BrainfuckMachineParameters(ONESIXFIVE_APP, ""))).output == "165")
+    assert(brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(ONESIXFIVE_APP, ""))).output == "165")
   }
 }

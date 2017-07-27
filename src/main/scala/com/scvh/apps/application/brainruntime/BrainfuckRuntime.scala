@@ -1,12 +1,12 @@
 package com.scvh.apps.application.brainruntime
 
+import org.springframework.stereotype.Component
 
-class BrainfuckRuntime(brainfuckMachineParameters: BrainfuckMachineParameters) {
+@Component
+class BrainfuckRuntime() {
   var memoryPoint = 0
   var output = ""
   var mem = new Array[Byte](65535)
-
-  def retrieveParams: BrainfuckMachineParameters = brainfuckMachineParameters
 
   def getCurrentMemBlock: Byte = mem(memoryPoint)
 
@@ -14,9 +14,9 @@ class BrainfuckRuntime(brainfuckMachineParameters: BrainfuckMachineParameters) {
 
   def decrMemory = mem.update(memoryPoint, (mem(memoryPoint) - 1).toByte)
 
-  def moveCaretForward = memoryPoint = if (memoryPoint == 65534) 0 else memoryPoint + 1
+  def moveCaretForward = memoryPoint = if (memoryPoint == mem.length - 1) 0 else memoryPoint + 1
 
-  def moveCaretBackward = memoryPoint = if (memoryPoint == 0) 65534 else memoryPoint - 1
+  def moveCaretBackward = memoryPoint = if (memoryPoint == 0) mem.length - 1 else memoryPoint - 1
 
   def printMemToANSIChar = output = output + mem(memoryPoint).toChar
 

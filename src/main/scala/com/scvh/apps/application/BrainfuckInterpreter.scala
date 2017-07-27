@@ -2,15 +2,14 @@ package com.scvh.apps.application
 
 import com.scvh.apps.application.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
 
-object brainfuckInterpreter extends (BrainfuckRuntime => BrainfuckRuntime) {
+object brainfuckInterpreter extends (BrainfuckBundle => BrainfuckRuntime) {
 
-  override def apply(runtime: BrainfuckRuntime): BrainfuckRuntime = {
-    interpBrainfuck(runtime, new BrainfuckLoopsParameters())
-    runtime
+  override def apply(bundle: BrainfuckBundle): BrainfuckRuntime = {
+    interpBrainfuck(bundle.runtime, bundle.parameters, bundle.loops)
+    bundle.runtime
   }
 
-  def interpBrainfuck(runtime: BrainfuckRuntime, looper: BrainfuckLoopsParameters): Unit = {
-    var params = runtime.retrieveParams
+  def interpBrainfuck(runtime: BrainfuckRuntime, params: BrainfuckMachineParameters, looper: BrainfuckLoopsParameters): Unit = {
     params.retrieveProgramAtCurrentPosition match {
       case ">" => runtime.moveCaretForward
       case "<" => runtime.moveCaretBackward
@@ -32,7 +31,7 @@ object brainfuckInterpreter extends (BrainfuckRuntime => BrainfuckRuntime) {
     }
     params.incrementPosition
     if (params.canIncrementAnyFurther) {
-      interpBrainfuck(runtime, looper)
+      interpBrainfuck(runtime, params, looper)
     }
   }
 
