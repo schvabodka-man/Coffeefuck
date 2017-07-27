@@ -1,5 +1,6 @@
 package com.scvh.apps.application
 
+import com.scvh.apps.presentation.helpers.brainfuckSpellCheck
 import org.junit.runner.RunWith
 import org.scalatest.FlatSpec
 import org.springframework.boot.test.context.SpringBootTest
