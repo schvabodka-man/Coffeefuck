@@ -1,6 +1,6 @@
 package com.scvh.apps.application
 
-import com.scvh.apps.application.brainruntime.{BrainfuckLoopsParameters, BrainfuckRuntime}
+import com.scvh.apps.application.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
 
 object brainfuckInterpreter extends (BrainfuckRuntime => BrainfuckRuntime) {
 
@@ -10,36 +10,53 @@ object brainfuckInterpreter extends (BrainfuckRuntime => BrainfuckRuntime) {
   }
 
   def interpBrainfuck(runtime: BrainfuckRuntime, looper: BrainfuckLoopsParameters): Unit = {
-    runtime.retrieveParams.retrieveProgramAtCurrentPosition match {
+    var params = runtime.retrieveParams
+    params.retrieveProgramAtCurrentPosition match {
       case ">" => runtime.moveCaretForward
       case "<" => runtime.moveCaretBackward
       case "+" => runtime.incMemory
       case "-" => runtime.decrMemory
       case "." => runtime.printMemToANSIChar
-      case "," => runtime.inputASCIIChar(runtime.retrieveParams.readArg)
+      case "," => runtime.inputASCIIChar(params.readArg)
       case "[" =>
         if (runtime.getCurrentMemBlock == 0) {
-          runtime.retrieveParams.incrementPosition
-          while (looper.isHigherThanZero || runtime.retrieveParams.retrieveProgramAtCurrentPosition != "]") {
-            if (runtime.retrieveParams.retrieveProgramAtCurrentPosition == "[") looper.increment
-            if (runtime.retrieveParams.retrieveProgramAtCurrentPosition == "]") looper.decrement
-            runtime.retrieveParams.incrementPosition
-          }
+          params.incrementPosition
+          startLoop(looper, params)
         }
       case "]" =>
         if (runtime.getCurrentMemBlock != 0) {
-          runtime.retrieveParams.lowerPosition
-          while (looper.isHigherThanZero || runtime.retrieveParams.retrieveProgramAtCurrentPosition != "[") {
-            if (runtime.retrieveParams.retrieveProgramAtCurrentPosition == "]") looper.increment
-            if (runtime.retrieveParams.retrieveProgramAtCurrentPosition == "[") looper.decrement
-            runtime.retrieveParams.lowerPosition
-          }
-          runtime.retrieveParams.lowerPosition
+          params.lowerPosition
+          finishLoop(looper, params)
+          params.lowerPosition
         }
     }
-    runtime.retrieveParams.incrementPosition
-    if (runtime.retrieveParams.canIncrementAnyFurther) {
+    params.incrementPosition
+    if (params.canIncrementAnyFurther) {
       interpBrainfuck(runtime, looper)
+    }
+  }
+
+  def startLoop(looper: BrainfuckLoopsParameters, params: BrainfuckMachineParameters): Unit = {
+    params.retrieveProgramAtCurrentPosition match {
+      case "[" => looper.increment
+      case "]" => looper.decrement
+      case default => //dindu nuffin
+    }
+    params.incrementPosition
+    if (looper.isHigherThanZero || params.retrieveProgramAtCurrentPosition != "]") {
+      startLoop(looper, params)
+    }
+  }
+
+  def finishLoop(looper: BrainfuckLoopsParameters, params: BrainfuckMachineParameters): Unit = {
+    params.retrieveProgramAtCurrentPosition match {
+      case "]" => looper.increment
+      case "[" => looper.decrement
+      case default => //dindu nuffin
+    }
+    params.lowerPosition
+    if (looper.isHigherThanZero || params.retrieveProgramAtCurrentPosition != "[") {
+      finishLoop(looper, params)
     }
   }
 }
