@@ -1,6 +1,6 @@
 package com.scvh.apps.application.brainruntime
 
-class BrainfuckMachineParameters(program: String, args: String) {
+class BrainfuckMachineParameters(val program: String, val args: String) {
   var programPosition = 0
   var argPosition = 0
 
