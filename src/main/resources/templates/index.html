@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="utf-8"></meta>
+
+    <title>CoffeeFuck</title>
+    <meta name="description" content="Your best Brainfuck interpreter"></meta>
+    <meta name="author" content="Ivan Scvh"></meta>
+
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/index.css" th:href="@{index.css}"/>
+
+</head>
+
+<body>
+<script src="js/scripts.js"></script>
+<div>
+    <div class="window" id="mainWindow">
+        <div id="console">
+
+        </div>
+    </div>
+    <div class="window" id="vm">
+        <div class="block">
+            <div class="blocktext cellval">
+                Current memory cell:
+            </div>
+        </div>
+        <div class="block cellval">
+            <div class="blocktext">
+                Current cell value:
+            </div>
+        </div>
+        <div class="block">
+            <div class="blocktext" id="stdout">
+                Stdout:
+            </div>
+        </div>
+        <div class="block">
+            <div class="blocktext">
+                View memory dump
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -106,11 +106,10 @@
 		</dependency>
 
         <dependency>
-            <groupId>io.reactivex</groupId>
-            <artifactId>rxscala_2.12</artifactId>
-            <version>0.26.5</version>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_2.12</artifactId>
+            <version>2.5.3</version>
         </dependency>
-
 
     </dependencies>
 
