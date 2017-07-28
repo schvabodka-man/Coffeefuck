@@ -61,6 +61,30 @@
     padding-top: 2%;
 }
 
+#errorwindow {
+    width: 80vw;
+    height: 70vh;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-left: 9%;
+    margin-right: 5%;
+    background-color: #212121;
+}
+
+#errorbigtitle {
+    padding-top: 10%;
+    font-size: 72px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#errorsmalltitle {
+    padding-top: 5%;
+    font-size: 48px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
 body {
     background-color: #ef9a9a;
     font-size: 1.2em;

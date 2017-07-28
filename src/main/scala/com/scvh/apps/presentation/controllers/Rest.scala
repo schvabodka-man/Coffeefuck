@@ -1,4 +1,4 @@
-package com.scvh.apps.presentation
+package com.scvh.apps.presentation.controllers
 
 import com.scvh.apps.application.brainresults._
 import com.scvh.apps.application.{BrainfuckBundle, brainfuckInterpreter, brainfuckValidate}

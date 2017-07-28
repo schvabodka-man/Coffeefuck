@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head th:fragment="headerfragment">
+    <meta charset="utf-8"/>
+
+    <title th:text="${code} + ' ' + ${text}"></title>
+    <meta name="description" content=""/>
+    <meta name="author" content="Ivan Scvh"/>
+
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/index.css" th:href="@{index.css}"/>
+
+</head>
+
+<body>
+
+<div id="errorwindow">
+    <div id="errorbigtitle" th:text="${code}">
+    </div>
+    <div id="errorsmalltitle" th:text="${text}">
+    </div>
+</div>
+
+</body>
+</html>
