@@ -23,18 +23,15 @@
     </div>
     <div class="window" id="vm">
         <div class="block">
-            <div class="blocktext cellval">
-                Current memory cell:
+            <div class="blocktext cellval" th:text="'Current memory cell: ' + ${memoryCell}">
             </div>
         </div>
         <div class="block cellval">
-            <div class="blocktext">
-                Current cell value:
+            <div class="blocktext" th:text="'Current cell value: ' + ${cellValue}">
             </div>
         </div>
         <div class="block">
-            <div class="blocktext" id="stdout">
-                Stdout:
+            <div class="blocktext" id="stdout" th:text="'Stdout' + ${stdout}">
             </div>
         </div>
         <div class="block">
