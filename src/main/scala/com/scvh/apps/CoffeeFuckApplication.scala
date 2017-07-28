@@ -11,5 +11,5 @@ import org.springframework.context.annotation.{ComponentScan, ImportResource}
 class CoffeeConfig
 
 object CoffeeFuckApplication extends App {
-  SpringApplication.run(classOf[CoffeeConfig])
+  SpringApplication.run(classOf[CoffeeConfig], args: _*)
 }

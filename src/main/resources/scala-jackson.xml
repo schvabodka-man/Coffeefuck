@@ -13,7 +13,7 @@
             <bean
                 class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
                 <property name="objectMapper">
-                    <bean class="com.scvh.apps.spring.conf.JacksonScalaMapper"></bean>
+                    <bean class="com.scvh.apps.spring.JacksonScalaMapper"></bean>
                 </property>
             </bean>
         </mvc:message-converters>

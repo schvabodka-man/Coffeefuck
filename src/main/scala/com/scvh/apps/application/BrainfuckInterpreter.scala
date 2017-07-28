@@ -20,12 +20,16 @@ object brainfuckInterpreter extends (BrainfuckBundle => BrainfuckRuntime) {
       case "[" =>
         if (runtime.getCurrentMemBlock == 0) {
           params.incrementPosition
-          startLoop(looper, params)
+          loop(looper, params, new LoopParams("]", "[", (params: BrainfuckMachineParameters) => {
+            params.incrementPosition
+          }))
         }
       case "]" =>
         if (runtime.getCurrentMemBlock != 0) {
           params.lowerPosition
-          finishLoop(looper, params)
+          loop(looper, params, new LoopParams("[", "]", (params: BrainfuckMachineParameters) => {
+            params.lowerPosition
+          }))
           params.lowerPosition
         }
     }
@@ -35,27 +39,18 @@ object brainfuckInterpreter extends (BrainfuckBundle => BrainfuckRuntime) {
     }
   }
 
-  def startLoop(looper: BrainfuckLoopsParameters, params: BrainfuckMachineParameters): Unit = {
+  def loop(looper: BrainfuckLoopsParameters, params: BrainfuckMachineParameters, loopParams: LoopParams): Unit = {
     params.retrieveProgramAtCurrentPosition match {
-      case "[" => looper.increment
-      case "]" => looper.decrement
+      case loopParams.secBracket => looper.increment
+      case loopParams.mainBracket => looper.decrement
       case default => //dindu nuffin
     }
-    params.incrementPosition
-    if (looper.isHigherThanZero || params.retrieveProgramAtCurrentPosition != "]") {
-      startLoop(looper, params)
+    loopParams.callback(params)
+    if (looper.isHigherThanZero || params.retrieveProgramAtCurrentPosition != loopParams.mainBracket) {
+      loop(looper, params, loopParams)
     }
   }
 
-  def finishLoop(looper: BrainfuckLoopsParameters, params: BrainfuckMachineParameters): Unit = {
-    params.retrieveProgramAtCurrentPosition match {
-      case "]" => looper.increment
-      case "[" => looper.decrement
-      case default => //dindu nuffin
-    }
-    params.lowerPosition
-    if (looper.isHigherThanZero || params.retrieveProgramAtCurrentPosition != "[") {
-      finishLoop(looper, params)
-    }
-  }
 }
+
+class LoopParams(val mainBracket: String, val secBracket: String, val callback: (BrainfuckMachineParameters) => Unit)

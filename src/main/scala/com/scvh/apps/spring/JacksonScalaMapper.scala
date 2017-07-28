@@ -1,4 +1,4 @@
-package com.scvh.apps.spring.conf
+package com.scvh.apps.spring
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
