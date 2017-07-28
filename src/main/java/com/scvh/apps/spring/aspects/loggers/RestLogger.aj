@@ -1,26 +1,25 @@
 package com.scvh.apps.spring.aspects.loggers;
 
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public aspect BrainfuckLogger {
+public aspect RestLogger {
 
     @Before("")
-    public void beforeBrainfuckStart() {
+    public void gettingMemory() {
 
     }
 
-    @After("")
-    public void afterBrainfuckFinished() {
+    @Before("")
+    public void gettingVM() {
 
     }
 
-    @After("")
-    public void newBrainfuckIterationStarted() {
+    @Before("")
+    public void gettingOutput() {
 
     }
 }
