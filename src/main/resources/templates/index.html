@@ -1,45 +1,44 @@
 <!doctype html>
 
 <html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
 
     <title>CoffeeFuck</title>
-    <meta name="description" content="Your best Brainfuck interpreter"/>
-    <meta name="author" content="Ivan Scvh"/>
+    <meta name="description" content="Your best Brainfuck interpreter" />
+    <meta name="author" content="Ivan Scvh" />
 
-    <link rel="stylesheet" type="text/css" media="all"
-          href="../static/index.css" th:href="@{index.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/index.css" th:href="@{index.css}" />
 
+    <link rel="stylesheet" type="text/css" media="all" href="../static/prism.css" th:href="@{prism.css}" />
 </head>
 
 <body>
-<script src="js/scripts.js"></script>
-<div>
-    <div class="window" id="mainWindow">
-        <div id="console">
-
+    <div>
+        <div class="window" id="mainWindow">
+            <pre id="console"><code contenteditable="true" id="inp" class="language-brainfuck"></code></pre>
         </div>
-    </div>
-    <div class="window" id="vm">
-        <div class="block">
-            <div class="blocktext cellval" th:text="'Current memory cell: ' + ${memoryCell}">
+        <div class="window" id="vm">
+            <div class="block">
+                <div class="blocktext cellval" th:text="'Current memory cell: ' + ${memoryCell}">
+                </div>
             </div>
-        </div>
-        <div class="block cellval">
-            <div class="blocktext" th:text="'Current cell value: ' + ${cellValue}">
+            <div class="block cellval">
+                <div class="blocktext" th:text="'Current cell value: ' + ${cellValue}">
+                </div>
             </div>
-        </div>
-        <div class="block">
-            <div class="blocktext" id="stdout" th:text="'Stdout' + ${stdout}">
+            <div class="block">
+                <div class="blocktext" id="stdout" th:text="'Stdout' + ${stdout}">
+                </div>
             </div>
-        </div>
-        <div class="block">
-            <div class="blocktext">
-                View memory dump
+            <div class="block">
+                <div class="blocktext">
+                    View memory dump
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
+
 </html>

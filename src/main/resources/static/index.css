@@ -13,6 +13,7 @@
     width: 65%;
     margin-left: 1%;
     float: left;
+	background-color: #212121;
 }
 
 #console {
@@ -29,24 +30,21 @@
 }
 
 .window {
-    margin-top: 3%;
-    background-color: #212121;
     color: #FFFFFF;
     height: 80vh;
+	margin-top: 3%;
 }
 
 .block {
-    background-color: #bdbdbd;
-    height: 17%;
-    width: 84%;
-    margin-bottom: 7%;
-    margin-top: 8%;
+    background-color: #212121;
+	height: 19%;
+    width: 88%;
     margin-left: 8%;
     margin-right: 10%;
+	margin-bottom: 9.5%;
 }
 
 .blocktext {
-    color: #000000;
     font-size: 1.4em;
     text-align: center;
     padding-top: 8%;
@@ -86,7 +84,7 @@
 }
 
 body {
-    background-color: #ef9a9a;
+    background-color: #8bc34a;
     font-size: 1.2em;
     font-family: 'Fira Mono';
 }
