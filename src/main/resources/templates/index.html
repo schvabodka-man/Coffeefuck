@@ -9,15 +9,22 @@
     <meta name="description" content="Your best Brainfuck interpreter" />
     <meta name="author" content="Ivan Scvh" />
 
-    <link rel="stylesheet" type="text/css" media="all" href="../static/index.css" th:href="@{index.css}" />
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/style/index.css"
+          th:href="@{css/style/index.css}"/>
 
-    <link rel="stylesheet" type="text/css" media="all" href="../static/prism.css" th:href="@{prism.css}" />
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/lib/prism.css"
+          th:href="@{css/lib/prism.css}"/>
+    <link href="	https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+          rel="stylesheet"/>
 </head>
 
 <body>
     <div>
         <div class="window" id="mainWindow">
-            <pre id="console"><code contenteditable="true" id="inp" class="language-brainfuck"></code></pre>
+            <div id="inputholder">
+                <pre id="console"><code id="inp" class="language-brainfuck"
+                                        contenteditable="true">,</code></pre>
+            </div>
         </div>
         <div class="window" id="vm">
             <div class="block">
@@ -39,6 +46,15 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript"
+            th:src="@{//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{js/lib/prism.js}"></script>
+    <script th:src="@{//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js}"></script>
+    <script th:src="@{js/code/funcs.js}"></script>
+    <script th:src="@{js/code/data.js}"></script>
+    <script>
+        main()
+    </script>
 </body>
 
 </html>
