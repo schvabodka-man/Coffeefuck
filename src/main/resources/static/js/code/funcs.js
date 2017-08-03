@@ -82,7 +82,9 @@ function inputHandler(currentLine, input) {
 
 function inputArgsMode(currentLine, input) {
     inputArgsFlag = true;
-    infoInputAllTheArgs(argsCount);
+    if (argsCount != 1) {
+        infoInputAllTheArgs(argsCount);
+    }
     newInputArgsLine(currentLine, input);
 }
 

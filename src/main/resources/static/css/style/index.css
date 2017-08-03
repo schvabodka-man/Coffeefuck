@@ -10,18 +10,13 @@
 }
 
 #mainWindow {
-    width: 65%;
+    width: 62%;
     margin-left: 1%;
     float: left;
     background-color: #212121;
+    padding: 1% 2%;
 }
 
-#console {
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-}
 
 #vm {
     width: 31%;
@@ -62,10 +57,7 @@
 #errorwindow {
     width: 80vw;
     height: 70vh;
-    margin-bottom: 5%;
-    margin-top: 5%;
-    margin-left: 9%;
-    margin-right: 5%;
+    margin: 5% 5% 5% 9%;
     background-color: #212121;
 }
 
