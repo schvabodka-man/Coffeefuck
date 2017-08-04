@@ -75,6 +75,20 @@
     color: #FFFFFF;
 }
 
+.inputholder {
+    border: none;
+    min-height: 1.2em;
+    display: inline-block;
+    width: 85%;
+    overflow: auto;
+}
+
+.output {
+    min-height: 1.2em;
+    display: inline-block;
+    width: 85%;
+    overflow: auto;
+}
 body {
     background-color: #8bc34a;
     font-size: 1.2em;

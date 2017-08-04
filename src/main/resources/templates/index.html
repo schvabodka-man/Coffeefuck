@@ -3,11 +3,11 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
 
     <title>CoffeeFuck</title>
-    <meta name="description" content="Your best Brainfuck interpreter" />
-    <meta name="author" content="Ivan Scvh" />
+    <meta name="description" content="Your best Brainfuck interpreter"/>
+    <meta name="author" content="Ivan Scvh"/>
 
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/style/index.css"
           th:href="@{css/style/index.css}"/>
@@ -19,42 +19,44 @@
 </head>
 
 <body>
-    <div>
-        <div class="window" id="mainWindow">
-            <div id="inputholder">
+<div>
+    <div class="window" id="mainWindow">
+        <div id="inputholder">
                 <pre id="console"><code id="inp" class="language-brainfuck"
                                         contenteditable="true">,</code></pre>
+        </div>
+    </div>
+    <div class="window" id="vm">
+        <div class="block">
+            <div class="blocktext cellval" th:text="'Current memory cell: ' + ${memoryCell}"
+                 id="memcell">
             </div>
         </div>
-        <div class="window" id="vm">
-            <div class="block">
-                <div class="blocktext cellval" th:text="'Current memory cell: ' + ${memoryCell}">
-                </div>
+        <div class="block cellval">
+            <div class="blocktext" th:text="'Current cell value: ' + ${cellValue}" id="cellval">
+                Current memory cell:
             </div>
-            <div class="block cellval">
-                <div class="blocktext" th:text="'Current cell value: ' + ${cellValue}">
-                </div>
+        </div>
+        <div class="block">
+            <div class="blocktext" id="clear" th:text="Clear">
             </div>
-            <div class="block">
-                <div class="blocktext" id="stdout" th:text="'Stdout' + ${stdout}">
-                </div>
-            </div>
-            <div class="block">
-                <div class="blocktext">
-                    View memory dump
-                </div>
+        </div>
+        <div class="block">
+            <div class="blocktext">
+                View memory dump
             </div>
         </div>
     </div>
-    <script type="text/javascript"
-            th:src="@{//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js}"></script>
-    <script th:src="@{js/lib/prism.js}"></script>
-    <script th:src="@{//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js}"></script>
-    <script th:src="@{js/code/funcs.js}"></script>
-    <script th:src="@{js/code/data.js}"></script>
-    <script>
-        main()
-    </script>
+</div>
+<script type="text/javascript"
+        th:src="@{//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js}"></script>
+<script th:src="@{js/lib/prism.js}"></script>
+<script th:src="@{//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js}"></script>
+<script th:src="@{js/code/funcs.js}"></script>
+<script th:src="@{js/code/data.js}"></script>
+<script>
+    main()
+</script>
 </body>
 
 </html>

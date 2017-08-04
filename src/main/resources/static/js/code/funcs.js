@@ -3,18 +3,56 @@ function readInput(line) {
 }
 
 function sendInput() {
-    if (countOutput() == 0) {
+    if (program.outputSymbols == 0) {
         warningIO("No output specified");
     }
+    infoExec("Running code now");
+    var req = $.ajax({
+        url: "api/vm",
+        type: "GET",
+        dataType: "json",
+        data: {
+            app: program.code,
+            input: program.inputArgs
+        }
+    });
+    req.done(function (data) {
+        nullArgParams();
+        populateDataFromResult(data);
+        finalExec("Finished");
+    });
+    req.fail(function (xhr, status) {
+        errorExec("Error");
+    });
 }
 
-function addArgument(input) {
-    inputArgs.push(input);
+function populateDataFromResult(data) {
+    makeAnswer(data);
+    if (result.output.length != 0) {
+        makeOutputLine($("#inputholder"), result.output);
+    }
+    populateCellsValues(result.memoryPoint, result.currentMemBlock);
+}
+
+function makeAnswer(data) {
+    result = new Answer(data.vm.output, data.vm.memoryPoint, data.vm.currentMemBlock, data.vm.mem);
+}
+
+function makeOutputLine(currentLine, stdout) {
+    newOutputLine(currentLine, stdout);
+}
+
+function populateCellsValues(memBlock, cellValue) {
+    $('#memcell').text("Current memory cell: " + memBlock);
+    $('#cellval').text("Current cell value: " + cellValue);
 }
 
 function nullArgParams() {
-    inputArgs = Array();
-    argsCount = 0;
+    program = new Program();
+}
+
+function resetInputLine(input) {
+    input.text('+>');
 }
 
 function initInputListener() {
@@ -23,23 +61,9 @@ function initInputListener() {
     });
 }
 
-function countInputArgs() {
-    return countChars(",");
-}
-
-function countOutput() {
-    return countChars(".");
-
-}
-
-function countChars(char) {
-    return program.split(char).length - 1;
-
-}
-
 function newLine(currentLine, input) {
-    currentLine.before("<div>" + input.html() + "</div>");
-    input.text(",");
+    newOutputLine(currentLine, input.html());
+    resetInputLine(input);
 }
 
 function keyListener() {
@@ -55,14 +79,14 @@ function keyListener() {
 }
 
 function inputHandler(currentLine, input) {
-    program = readInput(input);
-    if (countInputArgs() > 0 && inputArgsFlag == false) {
-        argsCount = countInputArgs(readInput(input));
+    program.setProgram(readInput(input));
+    if (program.argsCount > 0 && program.inputArgsFlag == false) {
+        program.argsCount = program.countInputArgs(readInput(input));
         inputArgsMode(currentLine, input);
-    } else if (inputArgsFlag == true && argsCount != inputArgs.length) {
+    } else if (program.inputArgsFlag == true && program.argsCount != program.inputArgs.length) {
         if (readInput(input).length == 1) {
-            addArgument(readInput(input));
-            if (argsCount == inputArgs.length) {
+            program.addArg(readInput(input));
+            if (program.argsCount == program.inputArgs.length) {
                 disableInputArgsMode();
                 sendInput();
                 nullArgParams();
@@ -81,21 +105,25 @@ function inputHandler(currentLine, input) {
 }
 
 function inputArgsMode(currentLine, input) {
-    inputArgsFlag = true;
-    if (argsCount != 1) {
-        infoInputAllTheArgs(argsCount);
+    program.inputArgsFlag = true;
+    if (program.argsCount != 1) {
+        infoInputAllTheArgs(program.argsCount);
     }
     newInputArgsLine(currentLine, input);
 }
 
 function disableInputArgsMode() {
-    inputArgsFlag = false;
+    program.inputArgsFlag = false;
 }
 
 function newInputArgsLine(currentline, input) {
-    infoIO("Input arg $" + inputArgs.length);
-    currentline.before("<div>" + input.html() + "</div>");
-    input.text("+");
+    infoIO("Input arg $" + program.inputArgs.length);
+    newOutputLine(currentLine, text.html());
+    resetInputLine(input);
+}
+
+function newOutputLine(currentLine, text) {
+    currentLine.before("<div class=\"output\">" + text + "</div>");
 }
 
 function errorNoInput() {
@@ -120,7 +148,18 @@ function infoIO(text) {
 
 function warningIO(text) {
     toastr.warning(text, "I/O");
+}
 
+function infoExec(text) {
+    toastr.info(text, "Exec");
+}
+
+function finalExec(text) {
+    toastr.success(text, "Exec");
+}
+
+function errorExec(text) {
+    toastr.error(text, "Exec");
 }
 
 function main() {
