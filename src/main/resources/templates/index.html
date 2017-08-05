@@ -14,11 +14,14 @@
 
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/lib/prism.css"
           th:href="@{css/lib/prism.css}"/>
-    <link href="	https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+          rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.11.0/tingle.min.css"
           rel="stylesheet"/>
 </head>
 
 <body>
+
 <div>
     <div class="window" id="mainWindow">
         <div id="inputholder">
@@ -37,23 +40,34 @@
                 Current memory cell:
             </div>
         </div>
-        <div class="block">
-            <div class="blocktext" id="clear" th:text="Clear">
+        <button class="block" id="clear">
+            <div class="blocktext buttonblock" th:text="Clear">
             </div>
-        </div>
-        <div class="block">
-            <div class="blocktext">
+        </button>
+        <button class="block" id="memory">
+            <div class="blocktext buttonblock">
                 View memory dump
             </div>
-        </div>
+        </button>
     </div>
 </div>
+
 <script type="text/javascript"
         th:src="@{//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js}"></script>
 <script th:src="@{js/lib/prism.js}"></script>
 <script th:src="@{//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js}"></script>
-<script th:src="@{js/code/funcs.js}"></script>
+<script th:src="@{//cdnjs.cloudflare.com/ajax/libs/tingle/0.11.0/tingle.min.js}"></script>
+
+<script th:src="@{js/code/main.js}"></script>
+<script th:src="@{js/code/lines.js}"></script>
+<script th:src="@{js/code/io.js}"></script>
+<script th:src="@{js/code/runtime.js}"></script>
+<script th:src="@{js/code/listeners.js}"></script>
+<script th:src="@{js/code/ui.js}"></script>
+<script th:src="@{js/code/backup.js}"></script>
+<script th:src="@{js/code/alerts.js}"></script>
 <script th:src="@{js/code/data.js}"></script>
+
 <script>
     main()
 </script>

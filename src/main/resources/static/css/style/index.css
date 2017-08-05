@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Fira Mono';
-    src: url('eot/FiraMono-Regular.eot');
-    src: url('eot/FiraMono-Regular.eot') format('embedded-opentype'),
-    url('woff2/FiraMono-Regular.woff2') format('woff2'),
-    url('woff/FiraMono-Regular.woff') format('woff'),
-    url('ttf/FiraMono-Regular.ttf') format('truetype');
+    src: url('https://github.com/mozilla/Fira/raw/master/eot/FiraMono-Regular.eot');
+    src: url('https://github.com/mozilla/Fira/raw/master/eot/FiraMono-Regular.eot') format('embedded-opentype'),
+    url('https://github.com/mozilla/Fira/raw/master/woff2/FiraMono-Regular.woff2') format('woff2'),
+    url('https://github.com/mozilla/Fira/raw/master/woff/FiraMono-Regular.woff') format('woff'),
+    url('https://github.com/mozilla/Fira/raw/master/ttf/FiraMono-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
@@ -16,7 +16,6 @@
     background-color: #212121;
     padding: 1% 2%;
 }
-
 
 #vm {
     width: 31%;
@@ -37,6 +36,15 @@
     margin-left: 8%;
     margin-right: 10%;
     margin-bottom: 9.5%;
+    border: none;
+    box-shadow: none;
+}
+
+.btnbackup {
+    color: #000000;
+    background-color: #76ff03;
+    border: none;
+    box-shadow: none;
 }
 
 .blocktext {
@@ -75,7 +83,7 @@
     color: #FFFFFF;
 }
 
-.inputholder {
+#inputholder {
     border: none;
     min-height: 1.2em;
     display: inline-block;
@@ -89,6 +97,7 @@
     width: 85%;
     overflow: auto;
 }
+
 body {
     background-color: #8bc34a;
     font-size: 1.2em;
