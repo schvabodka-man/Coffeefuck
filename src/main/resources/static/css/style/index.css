@@ -62,14 +62,14 @@
     padding-top: 2%;
 }
 
-#errorwindow {
+.bigwindow {
     width: 80vw;
     height: 70vh;
     margin: 5% 5% 5% 9%;
     background-color: #212121;
 }
 
-#errorbigtitle {
+.bigtitle {
     padding-top: 10%;
     font-size: 72px;
     text-align: center;
@@ -96,6 +96,26 @@
     display: inline-block;
     width: 85%;
     overflow: auto;
+}
+
+#registerlink {
+    padding-top: 3%;
+}
+
+.securitylink {
+    padding-top: 4%;
+    text-align: center;
+}
+
+.securitylinkinside {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.securityform {
+    text-align: center;
+    color: #FFFFFF;
+    padding-top: 10%;
 }
 
 body {

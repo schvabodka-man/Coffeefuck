@@ -1,15 +1,16 @@
 <!doctype html>
 
 <html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
-<head th:fragment="headerfragment">
+
+<head>
     <meta charset="utf-8"/>
 
-    <title th:text="${code} + ' ' + ${text}"></title>
-    <meta name="description" content="You've got error"/>
+    <title>Register</title>
+    <meta name="description" content="Registration"/>
     <meta name="author" content="Ivan Scvh"/>
 
-    <link rel="stylesheet" type="text/css" media="all"
-          href="../static/css/style/index.css" th:href="@{css/style/index.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../static/css/style/index.css"
+          th:href="@{css/style/index.css}"/>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/burger/2.0.2/css/burger.min.css"
           rel="stylesheet"/>
@@ -18,10 +19,10 @@
 <body>
 <header>
     <div class="b-nav">
-        <li><a class="b-link" href="/">Interpreter</a></li>
+        <li><a class="b-link" href="#">Interpreter</a></li>
         <li><a class="b-link" href="#">Debugger</a></li>
         <li><a class="b-link" href="#">Docs</a></li>
-        <li><a class="b-link" href="/login">Sign in/Sign Up</a></li>
+        <li><a class="b-link b-link--active" href="/login">Sign in/Sign Up</a></li>
     </div>
 
     <div class="b-container">
@@ -35,9 +36,14 @@
     </div>
 </header>
 <div class="bigwindow">
-    <div class="bigtitle" th:text="${code}">
+    <div class="bigtitle">
+        Register
     </div>
-    <div id="errorsmalltitle" th:text="${text}">
+    <div class="securityform">
+
+    </div>
+    <div class="securitylink">
+        <a href="/login" class="securitylinkinside">Want to simply login? Click here</a>
     </div>
 </div>
 
