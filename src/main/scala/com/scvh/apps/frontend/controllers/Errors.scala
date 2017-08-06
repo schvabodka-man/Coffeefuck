@@ -1,4 +1,4 @@
-package com.scvh.apps.presentation.controllers
+package com.scvh.apps.frontend.controllers
 
 import javax.servlet.http.HttpServletRequest
 

@@ -1,4 +1,4 @@
-package com.scvh.apps.application.brainruntime
+package com.scvh.apps.application.brainfuck.brainruntime
 
 import org.springframework.stereotype.Component
 

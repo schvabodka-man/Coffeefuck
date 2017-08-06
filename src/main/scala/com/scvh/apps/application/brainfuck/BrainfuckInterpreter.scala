@@ -1,10 +1,12 @@
-package com.scvh.apps.application
+package com.scvh.apps.application.brainfuck
 
-import com.scvh.apps.application.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
+import com.scvh.apps.application.brainfuck.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
+import org.springframework.stereotype.Component
 
-object brainfuckInterpreter extends (BrainfuckBundle => BrainfuckRuntime) {
+@Component
+class BrainfuckInterpreter {
 
-  override def apply(bundle: BrainfuckBundle): BrainfuckRuntime = {
+  def brainfuckInterpreter(bundle: BrainfuckBundle): BrainfuckRuntime = {
     interpBrainfuck(bundle.runtime, bundle.parameters, bundle.loops)
     bundle.runtime
   }

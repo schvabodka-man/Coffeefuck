@@ -1,7 +1,7 @@
 package com.scvh.apps.spring.beans
 
-import com.scvh.apps.application.LoopParams
-import com.scvh.apps.application.brainruntime.BrainfuckMachineParameters
+import com.scvh.apps.application.brainfuck.LoopParams
+import com.scvh.apps.application.brainfuck.brainruntime.BrainfuckMachineParameters
 import org.springframework.context.annotation.{Bean, Configuration}
 
 @Configuration

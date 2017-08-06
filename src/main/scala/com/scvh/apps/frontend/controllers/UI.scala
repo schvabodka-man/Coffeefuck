@@ -1,6 +1,6 @@
-package com.scvh.apps.presentation.controllers
+package com.scvh.apps.frontend.controllers
 
-import com.scvh.apps.application.brainresults.JsonAnswer
+import com.scvh.apps.frontend.JsonAnswer
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping

@@ -1,6 +1,6 @@
-package com.scvh.apps.application
+package com.scvh.apps.application.brainfuck
 
-import com.scvh.apps.application.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
+import com.scvh.apps.application.brainfuck.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
 import org.springframework.beans.factory.annotation.Autowired
 
 class BrainfuckBundle(val parameters: BrainfuckMachineParameters) {

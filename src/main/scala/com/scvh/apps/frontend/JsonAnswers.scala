@@ -1,6 +1,6 @@
-package com.scvh.apps.application.brainresults
+package com.scvh.apps.frontend
 
-import com.scvh.apps.application.brainruntime.BrainfuckRuntime
+import com.scvh.apps.application.brainfuck.brainruntime.BrainfuckRuntime
 
 class JsonAnswer()
 
