@@ -11,16 +11,36 @@
     <link rel="stylesheet" type="text/css" media="all"
           href="../static/css/style/index.css" th:href="@{css/style/index.css}"/>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/burger/2.0.2/css/burger.min.css"
+          rel="stylesheet"/>
 </head>
 
 <body>
+<header>
+    <div class="b-nav">
+        <li><a class="b-link" href="#">Interpreter</a></li>
+        <li><a class="b-link" href="#">Debugger</a></li>
+        <li><a class="b-link" href="#">Docs</a></li>
+    </div>
 
+    <div class="b-container">
+        <div class="b-menu">
+            <div class="b-bun b-bun--top"></div>
+            <div class="b-bun b-bun--mid"></div>
+            <div class="b-bun b-bun--bottom"></div>
+        </div>
+
+        <a href="#" class="b-brand"></a>
+    </div>
+</header>
 <div id="errorwindow">
     <div id="errorbigtitle" th:text="${code}">
     </div>
     <div id="errorsmalltitle" th:text="${text}">
     </div>
 </div>
+
+<script th:src="@{//cdnjs.cloudflare.com/ajax/libs/burger/2.0.2/scripts/burger.min.js}"></script>
 
 </body>
 </html>
