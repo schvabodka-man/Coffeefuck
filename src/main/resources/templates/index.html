@@ -18,10 +18,29 @@
           rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tingle/0.11.0/tingle.min.css"
           rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/burger/2.0.2/css/burger.min.css"
+          rel="stylesheet"/>
+
 </head>
 
 <body>
+<header>
+    <div class="b-nav">
+        <li><a class="b-link b-link--active" href="#">Interpreter</a></li>
+        <li><a class="b-link" href="#">Debugger</a></li>
+        <li><a class="b-link" href="#">Docs</a></li>
+    </div>
 
+    <div class="b-container">
+        <div class="b-menu">
+            <div class="b-bun b-bun--top"></div>
+            <div class="b-bun b-bun--mid"></div>
+            <div class="b-bun b-bun--bottom"></div>
+        </div>
+
+        <a href="#" class="b-brand"></a>
+    </div>
+</header>
 <div>
     <div class="window" id="mainWindow">
         <div id="inputholder">
@@ -54,9 +73,10 @@
 
 <script type="text/javascript"
         th:src="@{//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js}"></script>
-<script th:src="@{js/lib/prism.js}"></script>
 <script th:src="@{//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js}"></script>
 <script th:src="@{//cdnjs.cloudflare.com/ajax/libs/tingle/0.11.0/tingle.min.js}"></script>
+<script th:src="@{//cdnjs.cloudflare.com/ajax/libs/burger/2.0.2/scripts/burger.min.js}"></script>
+<script th:src="@{//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-brainfuck.min.js}"></script>
 
 <script th:src="@{js/code/main.js}"></script>
 <script th:src="@{js/code/lines.js}"></script>

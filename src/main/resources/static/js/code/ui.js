@@ -12,7 +12,7 @@ function popupWindowWithMemory(mem) {
     });
     overrideDefaultCss();
     modal.setContent(generateModalmemoryContent(mem));
-    modal.addFooterBtn('Backup', 'btnbackup', function () {
+    modal.addFooterBtn('Backup', 'btnbackupi', function () {
         downloadVMBackup('default.json');
     });
     modal.open();
@@ -33,3 +33,4 @@ function overrideDefaultCss() {
         "color": "#FFFFFF"
     });
 }
+
