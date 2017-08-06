@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component
 class BrainfuckInterpreter {
 
   def brainfuckInterpreter(bundle: BrainfuckBundle): BrainfuckRuntime = {
+    val t0 = System.nanoTime()
     interpBrainfuck(bundle.runtime, bundle.parameters, bundle.loops)
+    bundle.runtime.setupDurationOfExecution(System.nanoTime() - t0)
     bundle.runtime
   }
 

@@ -4,11 +4,11 @@ import com.scvh.apps.application.brainfuck.brainruntime.BrainfuckRuntime
 
 class JsonAnswer()
 
-class JsonAnswerOutput(val stdout: String) extends JsonAnswer() {
+class JsonAnswerOutput(val stdout: String, val time: Long) extends JsonAnswer() {
   val code = 200
 }
 
-class JsonAnswerMemory(val memory: Array[Byte]) extends JsonAnswer() {
+class JsonAnswerMemory(val memory: Array[Byte], val time: Long) extends JsonAnswer() {
   val code = 200
 }
 

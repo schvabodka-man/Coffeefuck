@@ -51,13 +51,25 @@
     </div>
     <div class="window" id="vm">
         <div class="block">
-            <div class="blocktext cellval" th:text="'Current memory cell: ' + ${memoryCell}"
+            <div class="blocktext">
+                Current memory cell:
+            </div>
+            <div class="blockval" th:text="${memoryCell}"
                  id="memcell">
             </div>
         </div>
-        <div class="block cellval">
-            <div class="blocktext" th:text="'Current cell value: ' + ${cellValue}" id="cellval">
-                Current memory cell:
+        <div class="block">
+            <div class="blocktext">
+                Current cell value:
+            </div>
+            <div class="blockval" th:text="${cellValue}" id="cellval"></div>
+        </div>
+        <div class="block">
+            <div class="blocktext">
+                Exec time:
+            </div>
+            <div class="blockval" th:text="${time}"
+                 id="exectime">
             </div>
         </div>
         <button class="block" id="clear">

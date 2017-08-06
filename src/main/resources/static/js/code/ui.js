@@ -1,6 +1,7 @@
-function populateCellsValues(memBlock, cellValue) {
-    $('#memcell').text("Current memory cell: " + memBlock);
-    $('#cellval').text("Current cell value: " + cellValue);
+function populateCellsValues(memBlock, cellValue, time) {
+    $('#memcell').text(memBlock);
+    $('#cellval').text(cellValue);
+    $('#exectime').text(time);
 }
 
 function popupWindowWithMemory(mem) {

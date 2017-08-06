@@ -17,11 +17,12 @@ class BrainfuckRunner {
   }
 
   def validateAndRun(bundle: BrainfuckBundle, flag: Int): JsonAnswer = {
+    val runtime = brainfuckInterpreter.brainfuckInterpreter(bundle)
     validationFacade.brainfuckValidate(bundle.parameters) match {
       case 0 => flag match {
-        case 0 => new JsonAnswerOutput(brainfuckInterpreter.brainfuckInterpreter(bundle).output)
-        case 1 => new JsonAnswerVM(brainfuckInterpreter.brainfuckInterpreter(bundle))
-        case 2 => new JsonAnswerMemory(brainfuckInterpreter.brainfuckInterpreter(bundle).mem)
+        case 0 => new JsonAnswerOutput(runtime.output, runtime.duration)
+        case 1 => new JsonAnswerVM(runtime)
+        case 2 => new JsonAnswerMemory(runtime.mem, runtime.duration)
       }
       case 1 => new JsonAnswerFault(400, "Not enough args")
     }

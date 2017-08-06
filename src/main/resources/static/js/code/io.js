@@ -25,7 +25,7 @@ function populateDataFromResult(data) {
     if (result.output.length != 0) {
         makeOutputLine($("#inputholder"), result.output);
     }
-    populateCellsValues(result.memoryPoint, result.currentMemBlock);
+    populateCellsValues(result.memoryPoint, result.currentMemBlock, result.time);
 }
 
 function makeAnswer(data) {

@@ -7,6 +7,9 @@ class BrainfuckRuntime() {
   var memoryPoint = 0
   var output = ""
   var mem = new Array[Byte](65535)
+  var duration: Long = 0
+
+  def setupDurationOfExecution(duration: Long) = this.duration = duration
 
   def getCurrentMemBlock: Byte = mem(memoryPoint)
 

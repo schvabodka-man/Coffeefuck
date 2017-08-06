@@ -12,6 +12,7 @@ class UI {
   def mainPage(model: Model): String = {
     model.addAttribute("memoryCell", 0)
     model.addAttribute("cellValue", 0)
+    model.addAttribute("time", 0)
     model.addAttribute("stdout", "")
     "index"
   }
