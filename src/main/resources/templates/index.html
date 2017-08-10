@@ -9,6 +9,9 @@
     <meta name="description" content="Your best Brainfuck interpreter"/>
     <meta name="author" content="Ivan Scvh"/>
 
+    <link rel="icon" type="image/png" th:href="@{pics/logo.png}" href="../static/pics/logo.png"
+          sizes="64x64"/>
+
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/style/index.css"
           th:href="@{css/style/index.css}"/>
 
@@ -41,8 +44,12 @@
 
         <a href="#" class="b-brand"></a>
     </div>
+
+    <div id="logo">
+        <img id="logoimage" th:src="@{pics/logo.png}"/>
+    </div>
 </header>
-<div>
+<div id="siteholder">
     <div class="window" id="mainWindow">
         <div id="inputholder">
                 <pre id="console"><code id="inp" class="language-brainfuck"

@@ -25,23 +25,22 @@
 
 .window {
     color: #FFFFFF;
-    height: 80vh;
+    height: 70vh;
     margin-top: 3%;
 }
 
 .block {
     background-color: #212121;
-    height: 12%;
+    height: 17%;
     width: 88%;
     margin-left: 8%;
     margin-right: 10%;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
     border: none;
     box-shadow: none;
 }
 
 .blockval {
-    padding-top: 1%;
     font-size: 1.4em;
     text-align: center;
 }
@@ -56,14 +55,14 @@
 .blocktext {
     font-size: 1.4em;
     text-align: center;
-    padding-top: 8%;
-    padding-bottom: 7%;
+    padding-top: 3%;
+    padding-bottom: 1%;
 }
 
 .bigwindow {
     width: 80vw;
     height: 70vh;
-    margin: 5% 5% 5% 9%;
+    margin: 2% 5% 5% 7%;
     background-color: #212121;
 }
 
@@ -116,6 +115,15 @@
     padding-top: 10%;
 }
 
+#logo {
+    text-align: center;
+}
+
+#logoimage {
+    width: 80px;
+    height: 100px;
+}
+
 body {
     background-color: #2196f3;
     font-size: 1.2em;
@@ -123,5 +131,5 @@ body {
 }
 
 header {
-    padding-bottom: 3%;
+    padding-bottom: 0;
 }
