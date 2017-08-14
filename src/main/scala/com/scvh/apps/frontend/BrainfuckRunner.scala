@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 @Component
 class BrainfuckRunner {
 
-  var brainfuckInterpreter: BrainfuckInterpreter = new BrainfuckInterpreter()
+  var brainfuckInterpreter = BrainfuckInterpreter
   var validationFacade: ValidationFacade = new ValidationFacade()
   var inputPrettifier: InputPrettifier = new InputPrettifier()
 

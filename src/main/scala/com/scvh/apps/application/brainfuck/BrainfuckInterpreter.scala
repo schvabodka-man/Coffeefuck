@@ -4,7 +4,7 @@ import com.scvh.apps.application.brainfuck.brainruntime.{BrainfuckLoopsParameter
 import org.springframework.stereotype.Component
 
 @Component
-class BrainfuckInterpreter {
+object BrainfuckInterpreter {
 
   def brainfuckInterpreter(bundle: BrainfuckBundle): BrainfuckRuntime = {
     val t0 = System.nanoTime()
