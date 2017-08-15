@@ -4,7 +4,7 @@ import com.scvh.apps.application.brainfuck.brainruntime.BrainfuckMachineParamete
 import org.springframework.stereotype.Component
 
 @Component
-class ValidationFacade {
+class BrainfuckCodeValidator {
 
   //now it's only checking for input
   def brainfuckValidate(things: BrainfuckMachineParameters): Int = {

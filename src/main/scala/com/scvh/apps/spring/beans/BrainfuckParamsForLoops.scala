@@ -16,4 +16,5 @@ class BrainfuckParamsForLoops {
   def finishLoop: LoopParams = new LoopParams("[", "]", (params: BrainfuckMachineParameters) => {
     params.lowerPosition
   })
+
 }

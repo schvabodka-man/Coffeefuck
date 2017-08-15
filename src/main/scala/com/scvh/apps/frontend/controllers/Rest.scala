@@ -9,7 +9,8 @@ class Rest {
   val brainfuckRunner = new BrainfuckRunner()
 
   @RequestMapping(Array("/api/output"))
-  def output(@RequestParam("app") app: String, @RequestParam(value = "input", required = false) list: Array[String]): JsonAnswer = {
+  def output(@RequestParam("app") app: String, @RequestParam(value = "input", required = false) list: Array[String],
+             @RequestParam(value = "key", required = false) key: String, @RequestParam(value = "vm", required = false) vm: String): JsonAnswer = {
     brainfuckRunner.runCode(app, list, 0)
   }
 
@@ -22,4 +23,5 @@ class Rest {
   def memory(@RequestParam("app") app: String, @RequestParam(value = "input", required = false) list: Array[String]): JsonAnswer = {
     brainfuckRunner.runCode(app, list, 2)
   }
+
 }

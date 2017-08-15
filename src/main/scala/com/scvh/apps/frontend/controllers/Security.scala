@@ -1,18 +1,11 @@
 package com.scvh.apps.frontend.controllers
 
-import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
-@Controller
+@RestController
 class Security {
 
-  @RequestMapping(Array("/register"))
-  def register(): String = {
-    "security/register"
-  }
 
-  @RequestMapping(Array("/login"))
-  def login(): String = {
-    "security/login"
-  }
+  def retrieveToken(): String = ""
+
 }

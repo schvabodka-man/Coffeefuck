@@ -1,9 +1,7 @@
 package com.scvh.apps.application.brainfuck.brainruntime
 
-import org.springframework.stereotype.Component
-
-@Component
 class BrainfuckRuntime() {
+
   var memoryPoint = 0
   var output = ""
   var mem = new Array[Byte](65535)

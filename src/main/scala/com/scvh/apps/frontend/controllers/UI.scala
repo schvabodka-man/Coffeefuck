@@ -1,6 +1,5 @@
 package com.scvh.apps.frontend.controllers
 
-import com.scvh.apps.frontend.JsonAnswer
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
@@ -17,8 +16,4 @@ class UI {
     "index"
   }
 
-  @RequestMapping(Array("/update"))
-  def processingBrainfuck: JsonAnswer = {
-    null
-  }
 }

@@ -1,8 +1,5 @@
 package com.scvh.apps.application.brainfuck.brainruntime
 
-import org.springframework.stereotype.Component
-
-@Component
 class BrainfuckLoopsParameters() {
 
   var looper = 0
