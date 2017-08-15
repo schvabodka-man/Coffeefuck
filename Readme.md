@@ -2,6 +2,7 @@
 
 <div style="display: inline-block;">
 <img src="https://github.com/schvabodka-man/Custom-Badges/blob/master/Languages/Scala/png/Scala%20xxxhdpi.png" width="300" height="50">
+<img src="https://raw.githubusercontent.com/schvabodka-man/Custom-Badges/master/Frameworks/png/Spring%20xxxhdpi.png" width="300" height="50">
 <img src="http://forthebadge.com/images/badges/uses-js.svg" width="150" height="50">
 </div>
 
