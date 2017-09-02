@@ -6,6 +6,4 @@ import org.springframework.web.bind.annotation.RestController
 class Security {
 
 
-  def retrieveToken(): String = ""
-
 }
