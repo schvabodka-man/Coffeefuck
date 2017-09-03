@@ -9,10 +9,10 @@ class BrainfuckInterpreter {
 
   @Autowired
   @Qualifier("startLoop")
-  var loopStarter: LoopParams = _
+  var LOOP_STARTER: LoopParams = _
   @Autowired
   @Qualifier("finishLoop")
-  var loopFinisher: LoopParams = _
+  var LOOP_FINISHER: LoopParams = _
 
   def brainfuckInterpreter(bundle: BrainfuckBundle): BrainfuckBundle = {
     val t0 = System.nanoTime()
@@ -32,12 +32,12 @@ class BrainfuckInterpreter {
       case "[" =>
         if (runtime.getCurrentMemBlock == 0) {
           params.incrementPosition
-          loop(looper, params, loopStarter)
+          loop(looper, params, LOOP_STARTER)
         }
       case "]" =>
         if (runtime.getCurrentMemBlock != 0) {
           params.lowerPosition
-          loop(looper, params, loopFinisher)
+          loop(looper, params, LOOP_FINISHER)
           params.lowerPosition
         }
     }

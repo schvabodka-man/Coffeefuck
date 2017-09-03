@@ -3,7 +3,7 @@ package com.scvh.apps.frontend
 import com.scvh.apps.application.brainfuck.{BrainfuckBundle, BrainfuckInterpreter}
 import com.scvh.apps.presentetation.parsers.InputPrettifier
 import com.scvh.apps.presentetation.validation.BrainfuckCodeValidator
-import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
 import org.springframework.stereotype.Component
 
 @Component
@@ -15,6 +15,11 @@ class BrainfuckRunner {
   var validationFacade: BrainfuckCodeValidator = _
   @Autowired
   var inputPrettifier: InputPrettifier = _
+
+  //IMHO nice declarative way to get "static" pre-built shit. Better than doing getbean like pleb
+  @Autowired
+  @Qualifier("notEnoughArgs")
+  var NOT_ENOUGH_ARGS_JSON: JsonAnswer = _
 
   def runCode(app: String, args: Array[String], flag: Int): JsonAnswer = {
     validateAndRun(inputPrettifier.brainfuckPresent(app :: inputPrettifier.checkInput(args) :: "GET" :: Nil), flag)
@@ -28,7 +33,7 @@ class BrainfuckRunner {
         case 1 => new JsonAnswerVM(runtime)
         case 2 => new JsonAnswerMemory(runtime.mem, runtime.duration)
       }
-      case 1 => new JsonAnswerFault(400, "Not enough args")
+      case 1 => NOT_ENOUGH_ARGS_JSON
     }
   }
 }
