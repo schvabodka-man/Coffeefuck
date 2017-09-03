@@ -3,49 +3,76 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
-    <meta charset="utf-8"/>
+	<meta charset="utf-8"/>
 
-    <title>Login</title>
-    <meta name="description" content="Login"/>
-    <meta name="author" content="Ivan Scvh"/>
+	<title>Login</title>
+	<meta name="description" content="Login"/>
+	<meta name="author" content="Ivan Scvh"/>
 
-    <link rel="stylesheet" type="text/css" media="all" href="../../static/css/style/index.css"
-          th:href="@{css/style/index.css}"/>
+	<link rel="stylesheet" type="text/css" media="all" href="../../static/css/style/index.css"
+		  th:href="@{css/style/index.css}"/>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/burger/2.0.2/css/burger.min.css"
-          rel="stylesheet"/>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/burger/2.0.2/css/burger.min.css"
+		  rel="stylesheet"/>
 
 </head>
 
 <body>
 <header>
-    <div class="b-nav">
-        <li><a class="b-link" href="/">Interpreter</a></li>
-        <li><a class="b-link" href="#">VM</a></li>
-        <li><a class="b-link" href="#">Snippets</a></li>
-        <li><a class="b-link" href="#">Docs</a></li>
-    </div>
+	<div class="b-nav">
+		<li><a class="b-link" href="/">Interpreter</a></li>
+		<li><a class="b-link" href="#">VM</a></li>
+		<li><a class="b-link" href="#">Snippets</a></li>
+		<li><a class="b-link" href="#">Docs</a></li>
+	</div>
 
-    <div class="b-container">
-        <div class="b-menu">
-            <div class="b-bun b-bun--top"></div>
-            <div class="b-bun b-bun--mid"></div>
-            <div class="b-bun b-bun--bottom"></div>
-        </div>
+	<div class="b-container">
+		<div class="b-menu">
+			<div class="b-bun b-bun--top"></div>
+			<div class="b-bun b-bun--mid"></div>
+			<div class="b-bun b-bun--bottom"></div>
+		</div>
 
-        <a href="#" class="b-brand"></a>
-    </div>
+		<a href="#" class="b-brand"></a>
+	</div>
 </header>
 <div class="bigwindow">
-    <div class="bigtitle">
-        Login
-    </div>
-    <div class="securityform">
-    </div>
-    <div class="securitylink">
-        <a href="/register" class="securitylinkinside">Not registered? Click here</a>
-    </div>
+	<div class="bigtitle">
+		Login
+	</div>
+	<div class="securityform">
+	</div>
+	<div class="securitylink">
+		<a href="/register" class="securitylinkinside">Not registered? Click here</a>
+	</div>
 </div>
+
+<script>
+	/*
+	 @licstart  The following is the entire license notice for the custom
+	 JavaScript code in this page.
+
+	 Copyright (C) 2014  Loic J. Duros
+
+	 The JavaScript code in this page is free software: you can
+	 redistribute it and/or modify it under the terms of the GNU
+	 General Public License (GNU GPL) as published by the Free Software
+	 Foundation, either version 3 of the License, or (at your option)
+	 any later version.  The code is distributed WITHOUT ANY WARRANTY;
+	 without even the implied warranty of MERCHANTABILITY or FITNESS
+	 FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+	 As additional permission under GNU GPL version 3 section 7, you
+	 may distribute non-source (e.g., minimized or compacted) forms of
+	 that code without the copy of the GNU GPL normally required by
+	 section 4, provided you include this license notice and a URL
+	 through which recipients can access the Corresponding Source.
+
+
+	 @licend  The above is the entire license notice
+	 for the JavaScript code in this page.
+	 */
+</script>
 
 <script th:src="@{//cdnjs.cloudflare.com/ajax/libs/burger/2.0.2/scripts/burger.min.js}"></script>
 

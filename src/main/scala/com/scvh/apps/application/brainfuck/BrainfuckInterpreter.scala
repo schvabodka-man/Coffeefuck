@@ -2,7 +2,6 @@ package com.scvh.apps.application.brainfuck
 
 import com.scvh.apps.application.brainfuck.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
 import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
-import org.springframework.stereotype.Component
 
 @Component
 class BrainfuckInterpreter {
