@@ -22,3 +22,9 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/coffeefuck.iml
+.ensime
+.ensime_cache/
+.mvn/
+project/
+src/main/scala/com/scvh/apps/security/

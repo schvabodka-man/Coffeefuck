@@ -1,16 +1,17 @@
 package com.scvh.apps.frontend.controllers
 
 import com.scvh.apps.frontend.{BrainfuckRunner, JsonAnswer}
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.{RequestMapping, RequestParam, RestController}
 
 @RestController
 class Rest {
 
-  val brainfuckRunner = new BrainfuckRunner()
+  @Autowired
+  var brainfuckRunner: BrainfuckRunner = _
 
   @RequestMapping(Array("/api/output"))
-  def output(@RequestParam("app") app: String, @RequestParam(value = "input", required = false) list: Array[String],
-             @RequestParam(value = "key", required = false) key: String, @RequestParam(value = "vm", required = false) vm: String): JsonAnswer = {
+  def output(@RequestParam("app") app: String, @RequestParam(value = "input", required = false) list: Array[String]): JsonAnswer = {
     brainfuckRunner.runCode(app, list, 0)
   }
 

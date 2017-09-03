@@ -1,6 +1,6 @@
 organization := "com.scvh.apps"
 
-name := "Coffeefuck" // TODO provide a short yet descriptive name
+name := "Coffeefuck"
 
 version := "1.0"
 

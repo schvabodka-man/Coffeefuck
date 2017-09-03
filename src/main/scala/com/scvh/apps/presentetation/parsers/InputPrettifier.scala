@@ -3,7 +3,9 @@ package com.scvh.apps.presentetation.parsers
 import com.scvh.apps.application.brainfuck.BrainfuckBundle
 import com.scvh.apps.application.brainfuck.brainruntime.BrainfuckMachineParameters
 import org.apache.commons.text.StringEscapeUtils
+import org.springframework.stereotype.Component
 
+@Component
 class InputPrettifier {
   def checkInput(input: Array[String]) = if (input == null) "" else input.mkString
 

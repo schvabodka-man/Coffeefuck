@@ -4,6 +4,7 @@ import com.scvh.apps.application.brainfuck.brainruntime.BrainfuckMachineParamete
 import com.scvh.apps.application.brainfuck.{BrainfuckBundle, BrainfuckInterpreter}
 import org.junit.runner.RunWith
 import org.scalatest.FlatSpec
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 
@@ -15,7 +16,9 @@ class BrainfuckInterpreterTest extends FlatSpec {
   private val SIMPLE_BRAINFUCK_APP = "++++++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++--.<."
   private val ONESIXFIVE_APP = ">+++++++++++[-<+++++++++++++++>]>++++++++++<<[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<]>>[-]>>>++++++++++<[->-[>+>>]>[+[-<+>]>+>>]<<<<<]>[-]>>[>++++++[-<++++++++>]<.<<+>+>[-]]<[<[->-<]++++++[->++++++++<]>.[-]]<<++++++[-<++++++++>]<.[-]<<[-<+>]"
   private val CAT_APP = ",.,."
-  var brainfuck = new BrainfuckInterpreter
+
+  @Autowired
+  var brainfuck: BrainfuckInterpreter = _
 
 
   "interpreter" should "run simple app without loops and input" in {

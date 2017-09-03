@@ -3,14 +3,18 @@ package com.scvh.apps.frontend
 import com.scvh.apps.application.brainfuck.{BrainfuckBundle, BrainfuckInterpreter}
 import com.scvh.apps.presentetation.parsers.InputPrettifier
 import com.scvh.apps.presentetation.validation.BrainfuckCodeValidator
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
 class BrainfuckRunner {
 
-  var brainfuckInterpreter = new BrainfuckInterpreter
-  var validationFacade: BrainfuckCodeValidator = new BrainfuckCodeValidator()
-  var inputPrettifier: InputPrettifier = new InputPrettifier()
+  @Autowired
+  var brainfuckInterpreter: BrainfuckInterpreter = _
+  @Autowired
+  var validationFacade: BrainfuckCodeValidator = _
+  @Autowired
+  var inputPrettifier: InputPrettifier = _
 
   def runCode(app: String, args: Array[String], flag: Int): JsonAnswer = {
     validateAndRun(inputPrettifier.brainfuckPresent(app :: inputPrettifier.checkInput(args) :: "GET" :: Nil), flag)

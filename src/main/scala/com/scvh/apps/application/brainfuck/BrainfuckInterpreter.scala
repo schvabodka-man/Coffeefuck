@@ -1,10 +1,18 @@
 package com.scvh.apps.application.brainfuck
 
 import com.scvh.apps.application.brainfuck.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
+import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
 import org.springframework.stereotype.Component
 
 @Component
 class BrainfuckInterpreter {
+
+  @Autowired
+  @Qualifier("startLoop")
+  var loopStarter: LoopParams = _
+  @Autowired
+  @Qualifier("finishLoop")
+  var loopFinisher: LoopParams = _
 
   def brainfuckInterpreter(bundle: BrainfuckBundle): BrainfuckBundle = {
     val t0 = System.nanoTime()
@@ -24,16 +32,12 @@ class BrainfuckInterpreter {
       case "[" =>
         if (runtime.getCurrentMemBlock == 0) {
           params.incrementPosition
-          loop(looper, params, new LoopParams("]", "[", (params: BrainfuckMachineParameters) => {
-            params.incrementPosition
-          }))
+          loop(looper, params, loopStarter)
         }
       case "]" =>
         if (runtime.getCurrentMemBlock != 0) {
           params.lowerPosition
-          loop(looper, params, new LoopParams("[", "]", (params: BrainfuckMachineParameters) => {
-            params.lowerPosition
-          }))
+          loop(looper, params, loopFinisher)
           params.lowerPosition
         }
     }

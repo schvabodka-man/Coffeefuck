@@ -4,6 +4,6 @@ import com.scvh.apps.application.brainfuck.brainruntime.{BrainfuckLoopsParameter
 
 class BrainfuckBundle(val parameters: BrainfuckMachineParameters) {
 
-  var runtime: BrainfuckRuntime = new BrainfuckRuntime()
-  var loops: BrainfuckLoopsParameters = new BrainfuckLoopsParameters()
+  var runtime: BrainfuckRuntime = new BrainfuckRuntime
+  var loops: BrainfuckLoopsParameters = new BrainfuckLoopsParameters
 }
