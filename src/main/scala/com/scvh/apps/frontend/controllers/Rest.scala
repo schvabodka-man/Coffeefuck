@@ -1,6 +1,7 @@
 package com.scvh.apps.frontend.controllers
 
-import com.scvh.apps.frontend.{BrainfuckRunner, JsonAnswer}
+import com.scvh.apps.frontend.json.JsonAnswer
+import com.scvh.apps.frontend.wrappers.BrainfuckRunner
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.{RequestMapping, RequestParam, RestController}
 

@@ -1,7 +1,7 @@
 package com.scvh.apps.application
 
-import com.scvh.apps.application.brainfuck.brainruntime.BrainfuckMachineParameters
-import com.scvh.apps.application.brainfuck.{BrainfuckBundle, BrainfuckInterpreter}
+import com.scvh.apps.application.interpreter.brainruntime.BrainfuckMachineParameters
+import com.scvh.apps.application.interpreter.{BrainfuckBundle, BrainfuckInterpreter}
 import org.junit.runner.RunWith
 import org.scalatest.FlatSpec
 import org.springframework.beans.factory.annotation.Autowired

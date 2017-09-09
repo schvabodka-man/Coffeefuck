@@ -1,4 +1,4 @@
-package com.scvh.apps.application.brainfuck.brainruntime
+package com.scvh.apps.application.interpreter.brainruntime
 
 class BrainfuckMachineParameters(val program: String, val args: String) {
   var programPosition = 0

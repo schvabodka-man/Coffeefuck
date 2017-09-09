@@ -1,7 +1,8 @@
-package com.scvh.apps.application.brainfuck
+package com.scvh.apps.application.interpreter
 
-import com.scvh.apps.application.brainfuck.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
+import com.scvh.apps.application.interpreter.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
 import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
+import org.springframework.stereotype.Component
 
 @Component
 class BrainfuckInterpreter {
@@ -20,7 +21,7 @@ class BrainfuckInterpreter {
     bundle
   }
 
-  def interpBrainfuck(runtime: BrainfuckRuntime, params: BrainfuckMachineParameters, looper: BrainfuckLoopsParameters): Unit = {
+  def interpBrainfuck(runtime: BrainfuckRuntime, params: BrainfuckMachineParameters, loopsParams: BrainfuckLoopsParameters): Unit = {
     params.retrieveProgramAtCurrentPosition match {
       case ">" => runtime.moveCaretForward
       case "<" => runtime.moveCaretBackward
@@ -31,18 +32,18 @@ class BrainfuckInterpreter {
       case "[" =>
         if (runtime.getCurrentMemBlock == 0) {
           params.incrementPosition
-          loop(looper, params, LOOP_STARTER)
+          loop(loopsParams, params, LOOP_STARTER)
         }
       case "]" =>
         if (runtime.getCurrentMemBlock != 0) {
           params.lowerPosition
-          loop(looper, params, LOOP_FINISHER)
+          loop(loopsParams, params, LOOP_FINISHER)
           params.lowerPosition
         }
     }
     params.incrementPosition
     if (params.canIncrementAnyFurther) {
-      interpBrainfuck(runtime, params, looper)
+      interpBrainfuck(runtime, params, loopsParams)
     }
   }
 

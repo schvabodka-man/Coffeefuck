@@ -1,7 +1,7 @@
 package com.scvh.apps.presentetation.parsers
 
-import com.scvh.apps.application.brainfuck.BrainfuckBundle
-import com.scvh.apps.application.brainfuck.brainruntime.BrainfuckMachineParameters
+import com.scvh.apps.application.interpreter.BrainfuckBundle
+import com.scvh.apps.application.interpreter.brainruntime.BrainfuckMachineParameters
 import org.apache.commons.text.StringEscapeUtils
 import org.springframework.stereotype.Component
 

@@ -1,6 +1,6 @@
 package com.scvh.apps.presentetation.validation
 
-import com.scvh.apps.application.brainfuck.brainruntime.BrainfuckMachineParameters
+import com.scvh.apps.application.interpreter.brainruntime.BrainfuckMachineParameters
 import org.springframework.stereotype.Component
 
 @Component

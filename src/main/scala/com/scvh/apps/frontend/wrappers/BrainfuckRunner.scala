@@ -1,6 +1,7 @@
-package com.scvh.apps.frontend
+package com.scvh.apps.frontend.wrappers
 
-import com.scvh.apps.application.brainfuck.{BrainfuckBundle, BrainfuckInterpreter}
+import com.scvh.apps.application.interpreter.{BrainfuckBundle, BrainfuckInterpreter}
+import com.scvh.apps.frontend.json.{JsonAnswer, JsonAnswerMemory, JsonAnswerOutput, JsonAnswerVM}
 import com.scvh.apps.presentetation.parsers.InputPrettifier
 import com.scvh.apps.presentetation.validation.BrainfuckCodeValidator
 import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
