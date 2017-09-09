@@ -2,9 +2,11 @@ package com.scvh.apps.application.interpreter
 
 import com.scvh.apps.application.interpreter.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
 import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
+import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
 
 @Component
+@Scope("prototype")
 class BrainfuckInterpreter {
 
   @Autowired
@@ -16,12 +18,12 @@ class BrainfuckInterpreter {
 
   def brainfuckInterpreter(bundle: BrainfuckBundle): BrainfuckBundle = {
     val t0 = System.nanoTime()
-    interpBrainfuck(bundle.runtime, bundle.parameters, bundle.loops)
+    interpBrainfuck(bundle.runtime, bundle.parameters, bundle.loops, bundle.oneFrameMode)
     bundle.runtime.setupDurationOfExecution(System.nanoTime() - t0)
     bundle
   }
 
-  def interpBrainfuck(runtime: BrainfuckRuntime, params: BrainfuckMachineParameters, loopsParams: BrainfuckLoopsParameters): Unit = {
+  def interpBrainfuck(runtime: BrainfuckRuntime, params: BrainfuckMachineParameters, loopsParams: BrainfuckLoopsParameters, oneFrameMode: Boolean): Unit = {
     params.retrieveProgramAtCurrentPosition match {
       case ">" => runtime.moveCaretForward
       case "<" => runtime.moveCaretBackward
@@ -42,8 +44,10 @@ class BrainfuckInterpreter {
         }
     }
     params.incrementPosition
-    if (params.canIncrementAnyFurther) {
-      interpBrainfuck(runtime, params, loopsParams)
+    oneFrameMode match {
+      case true => params.canIncrementAnyFurther match {
+        case true => interpBrainfuck(runtime, params, loopsParams, oneFrameMode)
+      }
     }
   }
 

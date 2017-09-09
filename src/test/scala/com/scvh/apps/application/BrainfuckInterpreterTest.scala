@@ -22,18 +22,18 @@ class BrainfuckInterpreterTest extends FlatSpec {
 
 
   "interpreter" should "run simple app without loops and input" in {
-    assert(brainfuck.brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(SIMPLE_BRAINFUCK_APP, ""))).runtime.output == "$*!*")
+    assert(brainfuck.brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(SIMPLE_BRAINFUCK_APP, ""), false)).runtime.output == "$*!*")
   }
 
   "interpeter" should "read input and print it" in {
-    assert(brainfuck.brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(CAT_APP, "ab"))).runtime.output == "ab")
+    assert(brainfuck.brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(CAT_APP, "ab"), false)).runtime.output == "ab")
   }
 
   "interpreter" should "execute hello world with loops" in {
-    assert(brainfuck.brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(BRAINFUCK_HELLO_WORLD, ""))).runtime.output == "Hello World!\n")
+    assert(brainfuck.brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(BRAINFUCK_HELLO_WORLD, ""), false)).runtime.output == "Hello World!\n")
   }
 
   "interpreter" should "print 165" in {
-    assert(brainfuck.brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(ONESIXFIVE_APP, ""))).runtime.output == "165")
+    assert(brainfuck.brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(ONESIXFIVE_APP, ""), false)).runtime.output == "165")
   }
 }

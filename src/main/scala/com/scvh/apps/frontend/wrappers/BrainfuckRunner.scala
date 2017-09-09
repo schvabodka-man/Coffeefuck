@@ -26,7 +26,7 @@ class BrainfuckRunner {
     validateAndRun(inputPrettifier.brainfuckPresent(app :: inputPrettifier.checkInput(args) :: "GET" :: Nil), flag)
   }
 
-  def validateAndRun(bundle: BrainfuckBundle, flag: Int): JsonAnswer = {
+  private def validateAndRun(bundle: BrainfuckBundle, flag: Int): JsonAnswer = {
     val runtime = brainfuckInterpreter.brainfuckInterpreter(bundle).runtime
     validationFacade.brainfuckValidate(bundle.parameters) match {
       case 0 => flag match {

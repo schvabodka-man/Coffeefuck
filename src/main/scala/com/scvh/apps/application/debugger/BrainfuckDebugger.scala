@@ -9,19 +9,24 @@ import org.springframework.stereotype.Component
 class BrainfuckDebugger {
 
   @Autowired
-  var vmHolder: DebuggerVMHolder = _
+  var vmImageHolder: DebuggerVMHolder = _
   @Autowired
-  var vmCleaner: DebuggerVMCleaner = _
+  var interpreterManager: DebuggerInterpreterManager = _
+  @Autowired
+  var bundleBuilder: DebuggerBundleBuilder = _
 
-  def init(program: String, input: Array[String]) {
-
+  def init(program: String, input: Array[String]) = {
+    vmImageHolder.update(bundleBuilder.buildBundle(program, input))
+    step("next")
   }
 
-  def step(command: String) {
+  def step(command: String) = {
     command match {
       case "prev" => //currently no logic for these
-      case "next" =>
+      case "next" => stepNext
     }
   }
+
+  def stepNext = vmImageHolder.update(interpreterManager.runFurther(vmImageHolder.bundle))
 
 }
