@@ -8,12 +8,8 @@ import org.springframework.stereotype.Component
 @Component
 class InputPrettifier {
 
-  //TODO заменить на тюпл и почистить код
-  def brainfuckPresent(params: List[String]): BrainfuckBundle = {
-    params(2) match {
-      case "GET" => new BrainfuckBundle(new BrainfuckMachineParameters(brainfuckSpellCheck(params.head), unescapeHtmlChars(params(1))), false)
-      case "POST" => new BrainfuckBundle(new BrainfuckMachineParameters(brainfuckSpellCheck(params.head), params(1)), false)
-    }
+  def brainfuckPresent(params: Map[String, Any]): BrainfuckBundle = {
+    new BrainfuckBundle(new BrainfuckMachineParameters(brainfuckSpellCheck(params("app").asInstanceOf[String]), unescapeHtmlChars(checkInput(params("args").asInstanceOf[Array[String]]))), params("frameMode").asInstanceOf[Boolean])
   }
 
   def brainfuckSpellCheck(code: String) = "[\\[\\].,+<>-]".r.findAllMatchIn(code).mkString

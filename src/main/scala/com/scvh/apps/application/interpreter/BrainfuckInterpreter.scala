@@ -44,9 +44,9 @@ class BrainfuckInterpreter {
         }
     }
     params.incrementPosition
-    oneFrameMode match {
-      case true => params.canIncrementAnyFurther match {
-        case true => interpBrainfuck(runtime, params, loopsParams, oneFrameMode)
+    if (!oneFrameMode) {
+      if (params.canIncrementAnyFurther) {
+        interpBrainfuck(runtime, params, loopsParams, oneFrameMode)
       }
     }
   }

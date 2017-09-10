@@ -23,7 +23,7 @@ class BrainfuckRunner {
   var NOT_ENOUGH_ARGS_JSON: JsonAnswer = _
 
   def runCode(app: String, args: Array[String], flag: Int): JsonAnswer = {
-    validateAndRun(inputPrettifier.brainfuckPresent(app :: inputPrettifier.checkInput(args) :: "GET" :: Nil), flag)
+    validateAndRun(inputPrettifier.brainfuckPresent(Map("app" -> app, "args" -> args, "frameMode" -> false)), flag)
   }
 
   private def validateAndRun(bundle: BrainfuckBundle, flag: Int): JsonAnswer = {

@@ -15,6 +15,6 @@ class DebuggerBundleBuilder {
 
   def buildBundle(program: String, args: Array[String]): BrainfuckBundle = {
     //TODO просто допилить
-    inputPrettifier.brainfuckPresent(program :: inputPrettifier.checkInput(args) :: "GET" :: Nil)
+    inputPrettifier.brainfuckPresent(Map("app" -> program, "args" -> args, "frameMode" -> true))
   }
 }

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller
 @Scope("session")
 class Websocketing {
 
-  @MessageMapping("/input/debug")
-  @SendTo("/output/debugger")
+  @MessageMapping(Array("/input/debug"))
+  @SendTo(Array("/output/debugger"))
   def debuggerMapping(): Unit = {
 
   }
