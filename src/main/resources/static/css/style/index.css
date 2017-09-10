@@ -25,13 +25,13 @@
 
 .window {
     color: #FFFFFF;
-    height: 70vh;
+    height: 70%;
     margin-top: 3%;
 }
 
 .block {
     background-color: #212121;
-    height: 17%;
+    height: 25%;
     width: 88%;
     margin-left: 8%;
     margin-right: 10%;
@@ -41,7 +41,7 @@
 }
 
 .blockval {
-    font-size: 1.4em;
+    font-size: 1.1em;
     text-align: center;
 }
 
@@ -60,8 +60,8 @@
 }
 
 .bigwindow {
-    width: 80vw;
-    height: 70vh;
+    width: 80%;
+    height: 70%;
     margin: 2% 5% 5% 7%;
     background-color: #212121;
 }

@@ -10,4 +10,9 @@ class JsonErrors {
   def notEnoughArgs(): JsonAnswer = {
     new JsonAnswerFault(400, "Not enough args")
   }
+
+  @Bean
+  def userPlayingWithJs(): JsonAnswer = {
+    new JsonAnswerFault(400, "Stop playing with protocol")
+  }
 }

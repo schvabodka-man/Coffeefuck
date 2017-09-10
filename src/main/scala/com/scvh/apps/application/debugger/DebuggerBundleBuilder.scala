@@ -14,7 +14,6 @@ class DebuggerBundleBuilder {
   var inputPrettifier: InputPrettifier = _
 
   def buildBundle(program: String, args: Array[String]): BrainfuckBundle = {
-    //TODO просто допилить
     inputPrettifier.brainfuckPresent(Map("app" -> program, "args" -> args, "frameMode" -> true))
   }
 }

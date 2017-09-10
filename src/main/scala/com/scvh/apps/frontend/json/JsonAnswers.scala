@@ -16,3 +16,4 @@ class JsonAnswerVM(val vm: BrainfuckRuntime) extends JsonSuccess
 
 class JsonAnswerFault(val code: Int, val explanation: String) extends JsonAnswer
 
+class JsonDebuggerProtocol(val command: String, val app: String, val args: Array[String])
