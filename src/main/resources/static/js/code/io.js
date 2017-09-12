@@ -13,6 +13,7 @@ function sendInput() {
             nullArgParams();
             populateDataFromResult(data);
             finalExec("Finished");
+            focusOnInputLine();
         },
         error: function (xhr, status) {
             errorExec("Error");
