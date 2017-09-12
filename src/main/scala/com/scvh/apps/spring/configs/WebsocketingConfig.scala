@@ -8,12 +8,14 @@ import org.springframework.web.socket.config.annotation.{AbstractWebSocketMessag
 @EnableWebSocketMessageBroker
 class WebsocketingConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
-  override def registerStompEndpoints(registry: StompEndpointRegistry): Unit = {
+  override def registerStompEndpoints(registry: StompEndpointRegistry) = {
     registry.addEndpoint("/debuginp")
     registry.addEndpoint("/debuginp").withSockJS()
   }
 
-  override def configureMessageBroker(registry: MessageBrokerRegistry): Unit = {
+  1455
+
+  override def configureMessageBroker(registry: MessageBrokerRegistry) = {
     registry.enableSimpleBroker("/debugout")
     registry.setApplicationDestinationPrefixes("/coffeedebugger")
   }
