@@ -2,11 +2,9 @@ package com.scvh.apps.application.debugger
 
 import com.scvh.apps.application.interpreter.brainruntime.BrainfuckRuntime
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
 
 @Component
-@Scope("session")
 class BrainfuckDebugger {
 
   @Autowired

@@ -13,8 +13,6 @@ class WebsocketingConfig extends AbstractWebSocketMessageBrokerConfigurer {
     registry.addEndpoint("/debuginp").withSockJS()
   }
 
-  1455
-
   override def configureMessageBroker(registry: MessageBrokerRegistry) = {
     registry.enableSimpleBroker("/debugout")
     registry.setApplicationDestinationPrefixes("/coffeedebugger")

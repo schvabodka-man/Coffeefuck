@@ -29,8 +29,8 @@
 <body>
 <header>
     <div class="b-nav">
-        <li><a class="b-link b-link--active" href="/">Interpreter</a></li>
-        <li><a class="b-link" href="/debugger">Debugger</a></li>
+        <li><a class="b-link" href="/">Interpreter</a></li>
+        <li><a class="b-link b-link--active" href="/debugger">Debugger</a></li>
         <li><a class="b-link" href="#">Docs</a></li>
     </div>
 
@@ -83,6 +83,11 @@
                 View memory dump
             </div>
         </button>
+        <button class="block" id="next">
+            <div class="blocktext buttonblock blockval">
+                Next Step
+            </div>
+        </button>
     </div>
 </div>
 
@@ -106,16 +111,11 @@
 <script th:src="@{//cdnjs.cloudflare.com/ajax/libs/burger/2.0.2/scripts/burger.min.js}"></script>
 <script th:src="@{//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js}"></script>
 <script th:src="@{//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-brainfuck.min.js}"></script>
+<script th:src="@{//cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js}"></script>
+<script th:src="@{//cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js}"></script>
 
-<script th:src="@{js/code/interpreter/main.js}"></script>
-<script th:src="@{js/code/interpreter/lines.js}"></script>
-<script th:src="@{js/code/interpreter/io.js}"></script>
-<script th:src="@{js/code/interpreter/runtime.js}"></script>
-<script th:src="@{js/code/interpreter/listeners.js}"></script>
-<script th:src="@{js/code/interpreter/ui.js}"></script>
-<script th:src="@{js/code/interpreter/backup.js}"></script>
-<script th:src="@{js/code/interpreter/alerts.js}"></script>
-<script th:src="@{js/code/interpreter/data.js}"></script>
+<script th:src="@{js/code/debugger/main.js}"></script>
+<script th:src="@{js/code/debugger/debug.js}"></script>
 
 <script>
     main()

@@ -4,11 +4,9 @@ import com.scvh.apps.application.debugger.BrainfuckDebugger
 import com.scvh.apps.application.interpreter.brainruntime.BrainfuckRuntime
 import com.scvh.apps.frontend.json.{JsonAnswer, JsonAnswerVM, JsonDebuggerProtocol}
 import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
-import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
 
 @Component
-@Scope("session")
 class BrainfuckDebuggerFrontend {
 
   @Autowired
