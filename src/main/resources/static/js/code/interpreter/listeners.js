@@ -2,9 +2,9 @@ function keyListener() {
     $(document).on("keypress", function (e) {
         if (e.keyCode == 13 && e.shiftKey) {
             if ($("#inp").text().length > 0) {
-                inputHandler($("#inputholder"), $("#inp"));
+                cachedProgram = inputHandler($("#inputholder"), $("#inp"), cachedProgram);
             } else {
-                errorNoInput();
+                error("No input");
             }
         }
     });
@@ -19,8 +19,5 @@ function initInputListener() {
 function clickListener() {
     $("#memory").click(function (e) {
         popupWindowWithMemory(result.memDump);
-    });
-    $("#clear").click(function (e) {
-
     });
 }

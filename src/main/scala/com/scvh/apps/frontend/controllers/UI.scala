@@ -13,16 +13,15 @@ class UI {
     "index"
   }
 
+  def nullModel(model: Model): Unit = {
+    model.addAttribute("memoryCell", 0)
+    model.addAttribute("cellValue", 0)
+    model.addAttribute("time", 0)
+  }
+
   @RequestMapping(Array("/debugger"))
   def debuggerPage(model: Model): String = {
     nullModel(model)
     "debugger"
-  }
-
-  def nullModel(model: Model) {
-    model.addAttribute("memoryCell", 0)
-    model.addAttribute("cellValue", 0)
-    model.addAttribute("time", 0)
-    model.addAttribute("stdout", "")
   }
 }

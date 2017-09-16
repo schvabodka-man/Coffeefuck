@@ -1,4 +1,4 @@
-function sendInput() {
+function sendInput(program) {
     if (program.outputSymbols == 0) {
         warningIO("No output specified");
     }
@@ -10,10 +10,10 @@ function sendInput() {
         }, true),
         type: "GET",
         success: function (data) {
-            nullArgParams();
             populateDataFromResult(data);
             finalExec("Finished");
             focusOnInputLine();
+            clearCache();
         },
         error: function (xhr, status) {
             errorExec("Error");
@@ -23,55 +23,59 @@ function sendInput() {
 
 function populateDataFromResult(data) {
     makeAnswer(data);
-    if (result.output.length != 0) {
-        makeOutputLine($("#inputholder"), result.output);
+    if (data.vm.output.length != 0) {
+        makeOutputLine($("#inputholder"), data.vm.output);
     }
-    populateCellsValues(result.memoryPoint, result.currentMemBlock, result.duration);
+    populateCellsValues(data.vm.memoryPoint, data.vm.currentMemBlock, data.vm.duration);
 }
 
 function makeAnswer(data) {
     result = new Answer(data.vm.output, data.vm.memoryPoint, data.vm.currentMemBlock, data.vm.mem);
 }
 
-function inputHandler(currentLine, input) {
-    if (program.code == "") {
+function inputHandler(currentLine, input, program) {
+    if (program.code.length == 0) {
         program.setProgram(readInput(input));
     }
     if (program.argsCount > 0 && program.inputArgsFlag == false) {
         program.argsCount = program.countInputArgs(readInput(input));
-        inputArgsMode(currentLine, input);
+        inputArgsMode(currentLine, input, program);
     } else if (program.inputArgsFlag == true) {
         if (readInput(input).length == 1) {
             if (program.argsCount == program.inputArgs.length) {
-                disableInputArgsMode();
-                sendInput();
-                nullArgParams();
+                disableInputArgsMode(program);
+                sendInput(program);
                 newLine(currentLine, input);
             } else {
                 program.addArg(readInput(input));
-                newInputArgsLine(currentLine, input);
+                newInputArgsLine(currentLine, input, program);
                 if (program.argsCount == program.inputArgs.length) {
-                    sendInput();
+                    sendInput(program);
                 }
             }
         } else {
-            errorWayTooManyInput();
+            error("Input can only be 1 char");
         }
     } else {
         warningIO("No input args specified");
-        sendInput(input.text());
+        sendInput(program);
         newLine(currentLine, input);
     }
+    return program;
 }
 
-function inputArgsMode(currentLine, input) {
+function inputArgsMode(currentLine, input, program) {
     program.inputArgsFlag = true;
     if (program.argsCount != 1) {
         infoInputAllTheArgs(program.argsCount);
     }
-    newInputArgsLine(currentLine, input);
+    newInputArgsLine(currentLine, input, program);
 }
 
-function disableInputArgsMode() {
+function disableInputArgsMode(program) {
     program.inputArgsFlag = false;
+}
+
+function clearCache() {
+    cachedProgram = new Program();
 }

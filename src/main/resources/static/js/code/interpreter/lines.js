@@ -15,7 +15,7 @@ function newLine(currentLine, input) {
     resetInputLine(input);
 }
 
-function newInputArgsLine(currentline, input) {
+function newInputArgsLine(currentline, input, program) {
     infoIO("Input arg $" + program.inputArgs.length);
     newOutputLine(currentline, input.html());
     resetInputLine(input);

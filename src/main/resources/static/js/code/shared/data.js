@@ -36,4 +36,4 @@ function Answer(output, memoryPoint, currentMemBlock, memDump) {
 }
 
 var result = new Answer();
-var program = new Program();
+var cachedProgram = new Program();

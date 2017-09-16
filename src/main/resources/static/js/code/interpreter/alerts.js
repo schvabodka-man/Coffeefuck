@@ -1,11 +1,3 @@
-function errorNoInput() {
-    error("No input");
-}
-
-function errorWayTooManyInput() {
-    error("Input can only be 1 char");
-}
-
 function error(text) {
     toastr.error(text, 'Error');
 }

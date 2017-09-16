@@ -9,7 +9,7 @@ function makeConnection() {
 function connectToServer() {
     client.connect({}, function (frame) {
         client.subscribe('/debugout', function (response) {
-            alert(response);
+            populateUIWithResult(response);
         });
     });
 }
@@ -20,10 +20,10 @@ function nextStep() {
     }));
 }
 
-function debuggerInit(programm, input) {
+function debuggerInit(programm) {
     client.send("/coffeedebugger/debuginp", {}, JSON.stringify({
         'command': "init",
-        'app': programm,
-        'args': input
+        'app': programm.code,
+        'args': programm.inputArgs
     }));
 }
