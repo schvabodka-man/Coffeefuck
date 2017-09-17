@@ -1,6 +1,6 @@
 package com.scvh.apps.application.debugger
 
-import com.scvh.apps.application.interpreter.brainruntime.BrainfuckRuntime
+import com.scvh.apps.application.interpreter.BrainfuckBundle
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
@@ -19,16 +19,16 @@ class BrainfuckDebugger {
     step("next")
   }
 
-  def step(command: String): BrainfuckRuntime = {
+  def step(command: String): BrainfuckBundle = {
     command match {
       case "prev" => null //currently no logic for these
       case "next" => stepNext
     }
   }
 
-  private def stepNext: BrainfuckRuntime = {
+  private def stepNext: BrainfuckBundle = {
     vmImageHolder.update(interpreterManager.runFurther(vmImageHolder.bundle))
-    vmImageHolder.bundle.runtime
+    vmImageHolder.bundle
   }
 
 }

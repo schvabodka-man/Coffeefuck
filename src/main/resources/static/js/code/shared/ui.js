@@ -49,9 +49,6 @@ function inputProgramKeyListenerLogic() {
 
 function populateDataFromResult(data) {
     makeAnswer(data);
-    if (data.vm.output.length != 0) {
-        makeOutputLine($("#inputholder"), data.vm.output);
-    }
     populateCellsValues(data.vm.memoryPoint, data.vm.currentMemBlock, data.vm.duration);
 }
 

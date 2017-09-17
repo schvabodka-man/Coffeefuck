@@ -11,6 +11,9 @@ function sendInput(program) {
         type: "GET",
         success: function (data) {
             populateDataFromResult(data);
+            if (data.vm.output.length != 0) {
+                makeOutputLine($("#inputholder"), data.vm.output);
+            }
             finalExec("Finished");
             focusOnInputLine();
             clearCache();

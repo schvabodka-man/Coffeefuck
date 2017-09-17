@@ -31,7 +31,7 @@ class BrainfuckRunner {
     validationFacade.brainfuckValidate(bundle.parameters) match {
       case 0 => flag match {
         case 0 => new JsonAnswerOutput(runtime.output, runtime.duration)
-        case 1 => new JsonAnswerVM(runtime)
+        case 1 => new JsonAnswerVM(runtime, bundle.parameters.programPosition)
         case 2 => new JsonAnswerMemory(runtime.mem, runtime.duration)
       }
       case 1 => NOT_ENOUGH_ARGS_JSON

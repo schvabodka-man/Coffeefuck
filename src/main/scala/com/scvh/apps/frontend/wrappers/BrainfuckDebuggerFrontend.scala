@@ -1,7 +1,7 @@
 package com.scvh.apps.frontend.wrappers
 
 import com.scvh.apps.application.debugger.BrainfuckDebugger
-import com.scvh.apps.application.interpreter.brainruntime.BrainfuckRuntime
+import com.scvh.apps.application.interpreter.BrainfuckBundle
 import com.scvh.apps.frontend.json.{JsonAnswer, JsonAnswerVM, JsonDebuggerProtocol}
 import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
 import org.springframework.stereotype.Component
@@ -24,7 +24,7 @@ class BrainfuckDebuggerFrontend {
     }
   }
 
-  def constructAnswer(brainfuckRuntime: BrainfuckRuntime): JsonAnswerVM = {
-    new JsonAnswerVM(brainfuckRuntime)
+  def constructAnswer(bundle: BrainfuckBundle): JsonAnswerVM = {
+    new JsonAnswerVM(bundle.runtime, bundle.parameters.programPosition)
   }
 }
