@@ -39,3 +39,10 @@ function focusOnInputLine() {
     $("#inputholder").focus();
 }
 
+function inputProgramKeyListenerLogic() {
+    if ($("#inp").text().length > 0) {
+        cachedProgram = inputHandler($("#inputholder"), $("#inp"), cachedProgram);
+    } else {
+        error("No input");
+    }
+}

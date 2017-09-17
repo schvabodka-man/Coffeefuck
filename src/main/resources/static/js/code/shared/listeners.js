@@ -9,3 +9,11 @@ function clickListener() {
         popupWindowWithMemory(result.memDump);
     });
 }
+
+function shiftEnterListener(func) {
+    $(document).on("keypress", function (e) {
+        if (e.keyCode == 13 && e.shiftKey) {
+            func();
+        }
+    });
+}

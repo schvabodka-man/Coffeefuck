@@ -23,6 +23,7 @@ function nextStep() {
 }
 
 function debuggerInit(programm) {
+    infoExec("Starting debugger");
     client.send("/coffeedebugger/debuginp", {}, JSON.stringify({
         'command': "init",
         'app': programm.code,

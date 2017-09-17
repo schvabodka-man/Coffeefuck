@@ -1,7 +1,4 @@
 function populateUIWithResult(response) {
-
-}
-
-function generateProgramQuery() {
-
+    infoExec("Done");
+    populateDataFromResult(response);
 }
