@@ -2,10 +2,6 @@ function error(text) {
     toastr.error(text, 'Error');
 }
 
-function infoInputAllTheArgs(argsNumber) {
-    infoIO('Input all the ' + argsNumber + " args");
-}
-
 function infoIO(text) {
     toastr.info(text, "I/O");
 }

@@ -1,6 +1,8 @@
 var connection = null;
 var client = null;
 
+var programInputMode = true;
+
 function makeConnection() {
     connection = new SockJS('/debuginp');
     client = Stomp.over(connection);
@@ -26,4 +28,16 @@ function debuggerInit(programm) {
         'app': programm.code,
         'args': programm.inputArgs
     }));
+}
+
+function sendInput(program) {
+    if (program.outputSymbols == 0) {
+        warningIO("No output specified");
+    }
+    if (programInputMode) {
+        programInputMode = false;
+        debuggerInit(program);
+    } else {
+        nextStep();
+    }
 }

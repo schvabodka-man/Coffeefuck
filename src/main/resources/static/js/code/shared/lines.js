@@ -7,7 +7,7 @@ function makeOutputLine(currentLine, stdout) {
 }
 
 function resetInputLine(input) {
-    input.text('+>');
+    input.text(',');
 }
 
 function newLine(currentLine, input) {

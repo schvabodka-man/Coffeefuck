@@ -36,6 +36,6 @@ function overrideDefaultCss() {
 }
 
 function focusOnInputLine() {
-    $("#console5").focus();
+    $("#inputholder").focus();
 }
 
