@@ -3,4 +3,5 @@ function main() {
     makeConnection();
     connectToServer();
     clickListener();
+    keyListener();
 }

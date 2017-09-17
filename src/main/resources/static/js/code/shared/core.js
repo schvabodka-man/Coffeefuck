@@ -1,15 +1,3 @@
-function populateDataFromResult(data) {
-    makeAnswer(data);
-    if (data.vm.output.length != 0) {
-        makeOutputLine($("#inputholder"), data.vm.output);
-    }
-    populateCellsValues(data.vm.memoryPoint, data.vm.currentMemBlock, data.vm.duration);
-}
-
-function makeAnswer(data) {
-    result = new Answer(data.vm.output, data.vm.memoryPoint, data.vm.currentMemBlock, data.vm.mem);
-}
-
 function inputHandler(currentLine, input, program) {
     if (program.code.length == 0) {
         program.setProgram(readInput(input));

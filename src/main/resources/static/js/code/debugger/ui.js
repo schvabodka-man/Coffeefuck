@@ -1,4 +1,4 @@
 function populateUIWithResult(response) {
-    infoExec("Done");
-    populateDataFromResult(response);
+    finalExec("Done");
+    populateDataFromResult(JSON.parse(response.body));
 }

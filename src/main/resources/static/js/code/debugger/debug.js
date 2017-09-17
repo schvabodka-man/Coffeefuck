@@ -32,13 +32,6 @@ function debuggerInit(programm) {
 }
 
 function sendInput(program) {
-    if (program.outputSymbols == 0) {
-        warningIO("No output specified");
-    }
-    if (programInputMode) {
-        programInputMode = false;
-        debuggerInit(program);
-    } else {
-        nextStep();
-    }
+    programInputMode = false;
+    debuggerInit(program);
 }

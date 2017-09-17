@@ -16,9 +16,7 @@ function sendInput(program) {
             clearCache();
         },
         error: function (xhr, status) {
-            errorExec("Error");
+            errorExec(status);
         }
     });
 }
-
-
