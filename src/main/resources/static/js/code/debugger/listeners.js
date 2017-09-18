@@ -1,7 +1,7 @@
 function keyListener() {
     shiftEnterListener(function () {
         if (programInputMode) {
-            inputProgramKeyListenerLogic();
+            inputProgramKeyListenerLogic($("#liveOutput"));
         } else {
             nextStep();
         }

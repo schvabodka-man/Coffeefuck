@@ -22,5 +22,7 @@ function newInputArgsLine(currentline, input, program) {
 }
 
 function newOutputLine(currentLine, text) {
-    currentLine.before("<div class=\"output\">" + text + "</div>");
+    if (text.length != 0) {
+        currentLine.before("<div class=\"output\">" + text + "</div>");
+    }
 }

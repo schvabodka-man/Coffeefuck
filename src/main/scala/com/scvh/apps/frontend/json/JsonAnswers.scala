@@ -12,7 +12,7 @@ class JsonAnswerOutput(val stdout: String, val time: Long) extends JsonSuccess
 
 class JsonAnswerMemory(val memory: Array[Byte], val time: Long) extends JsonSuccess
 
-class JsonAnswerVM(val vm: BrainfuckRuntime, val programPoint: Int) extends JsonSuccess
+class JsonAnswerVM(val vm: BrainfuckRuntime, val programPoint: Int, val anyFurther: Boolean) extends JsonSuccess
 
 class JsonAnswerFault(val code: Int, val explanation: String) extends JsonAnswer
 

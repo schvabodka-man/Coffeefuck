@@ -32,7 +32,7 @@ function inputHandler(currentLine, input, program) {
 function inputArgsMode(currentLine, input, program) {
     program.inputArgsFlag = true;
     if (program.argsCount != 1) {
-        infoIO('Input all the ' + program.argsCount + " args")
+        infoIO('Input all the ' + program.argsCount + " args");
     }
     newInputArgsLine(currentLine, input, program);
 }

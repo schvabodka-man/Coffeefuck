@@ -4,9 +4,10 @@ function populateUIWithResult(response) {
 }
 
 function updateOutput(newOutput) {
-    $("#liveOutput").html(newOutput);
+    $("#liveOutput").text(newOutput);
 }
 
-function cleanOutput(inputLine) {
-
+function cleanOutput(line) {
+    newOutputLine(line, line.text());
+    line.text("");
 }

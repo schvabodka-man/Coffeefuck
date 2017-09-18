@@ -25,6 +25,6 @@ class BrainfuckDebuggerFrontend {
   }
 
   def constructAnswer(bundle: BrainfuckBundle): JsonAnswerVM = {
-    new JsonAnswerVM(bundle.runtime, bundle.parameters.programPosition)
+    new JsonAnswerVM(bundle.runtime, bundle.parameters.programPosition, bundle.parameters.canIncrementAnyFurther)
   }
 }
