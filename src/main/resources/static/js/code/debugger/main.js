@@ -4,4 +4,5 @@ function main() {
     connectToServer();
     clickListener();
     keyListener();
+    $("#liveOutput").hide();
 }

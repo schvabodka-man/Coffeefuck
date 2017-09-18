@@ -34,6 +34,8 @@ function debuggerInit(programm) {
 }
 
 function sendInput(program) {
+    $("#liveOutput").show();
+    $("#inputholder").hide();
     programInputMode = false;
     debuggerInit(program);
 }
@@ -44,5 +46,7 @@ function checkIfProgramEnded(data) {
         programInputMode = true;
         cleanOutput($("#liveOutput"));
         cachedProgram = new Program();
+        $("#liveOutput").hide();
+        $("#inputholder").show();
     }
 }
