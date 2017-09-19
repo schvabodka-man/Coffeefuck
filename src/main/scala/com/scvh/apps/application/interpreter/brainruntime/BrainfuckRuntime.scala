@@ -3,7 +3,7 @@ package com.scvh.apps.application.interpreter.brainruntime
 import org.springframework.stereotype.Component
 
 @Component
-class BrainfuckRuntime() {
+class BrainfuckRuntime {
 
   var memoryPoint = 0
   var output = ""
@@ -25,4 +25,5 @@ class BrainfuckRuntime() {
   def printMemToANSIChar = output = output + mem(memoryPoint).toChar
 
   def inputASCIIChar(char: Char) = mem.update(memoryPoint, char.toByte)
+
 }

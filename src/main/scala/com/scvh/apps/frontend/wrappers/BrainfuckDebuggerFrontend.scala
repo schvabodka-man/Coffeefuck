@@ -19,6 +19,7 @@ class BrainfuckDebuggerFrontend {
   def debug(jsonInput: JsonDebuggerProtocol): JsonAnswer = {
     jsonInput.command match {
       case "next" => constructAnswer(debuggerBackend.step("next"))
+      case "prev" => constructAnswer(debuggerBackend.step("prev"))
       case "init" => constructAnswer(debuggerBackend.init(jsonInput.app, jsonInput.args))
       case default => USER_BREAKING_STUFF
     }

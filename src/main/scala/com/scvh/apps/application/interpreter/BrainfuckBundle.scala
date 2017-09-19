@@ -6,4 +6,9 @@ class BrainfuckBundle(val parameters: BrainfuckMachineParameters, val oneFrameMo
 
   var runtime: BrainfuckRuntime = new BrainfuckRuntime
   var loops: BrainfuckLoopsParameters = new BrainfuckLoopsParameters
+
+  def copy: BrainfuckBundle = {
+    null
+  }
+
 }

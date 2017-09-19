@@ -21,7 +21,14 @@ function nextStep() {
     client.send("/coffeedebugger/debuginp", {}, JSON.stringify({
         'command': "next"
     }));
-    infoExec("Step");
+    infoExec("Step into");
+}
+
+function prevStep() {
+    client.send("/coffeedebugger/debuginp", {}, JSON.stringify({
+        'command': "prev"
+    }));
+    infoExec("Step back");
 }
 
 function debuggerInit(programm) {
