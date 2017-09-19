@@ -56,6 +56,7 @@ libraryDependencies ++= Seq(
   "org.springframework.boot" % "spring-boot-starter-websocket" % "1.5.4.RELEASE" withSources(),
   "org.springframework.boot" % "spring-boot-configuration-processor" % "1.5.4.RELEASE" withSources(),
   "org.springframework.boot" % "spring-boot-starter-test" % "1.5.4.RELEASE" % "test" withSources(),
+  "uk.com.robust-it" % "cloning" % "1.9.5" withJavadoc() withSources(),
   "org.scalatest" % "scalatest_2.11" % "3.0.3" % "test" withJavadoc() withSources(),
   "org.apache.commons" % "commons-text" % "1.1" withJavadoc() withSources(),
   "com.fasterxml.jackson.module" % "jackson-module-scala_2.11" % "2.8.9" withJavadoc() withSources(),

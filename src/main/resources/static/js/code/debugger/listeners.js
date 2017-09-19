@@ -7,3 +7,11 @@ function keyListener() {
         }
     });
 }
+
+function prevFrameListener(func) {
+    $(document).on("keypress", function (e) {
+        if (e.shiftKey && e.keyCode == 13) {
+            prevStep();
+        }
+    });
+}

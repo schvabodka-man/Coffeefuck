@@ -1,5 +1,6 @@
 package com.scvh.apps.application.interpreter
 
+import com.rits.cloning.Cloner
 import com.scvh.apps.application.interpreter.brainruntime.{BrainfuckLoopsParameters, BrainfuckMachineParameters, BrainfuckRuntime}
 
 class BrainfuckBundle(val parameters: BrainfuckMachineParameters, val oneFrameMode: Boolean) {
@@ -8,7 +9,8 @@ class BrainfuckBundle(val parameters: BrainfuckMachineParameters, val oneFrameMo
   var loops: BrainfuckLoopsParameters = new BrainfuckLoopsParameters
 
   def copy: BrainfuckBundle = {
-    null
+    val cloner = new Cloner()
+    cloner.deepClone(this)
   }
 
 }

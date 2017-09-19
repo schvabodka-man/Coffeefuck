@@ -12,7 +12,7 @@ function clickListener() {
 
 function shiftEnterListener(func) {
     $(document).on("keypress", function (e) {
-        if (e.keyCode == 13 && e.shiftKey) {
+        if (e.keyCode == 13) {
             func();
         }
     });

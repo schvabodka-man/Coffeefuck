@@ -34,7 +34,7 @@ class BrainfuckDebugger {
 
   private def stepNext: BrainfuckBundle = {
     vmImageHolder.update(interpreterManager.runFurther(vmImageHolder.bundle))
-    snapshotManager.pushSnapshot(vmImageHolder.bundle.copy())
+    snapshotManager.pushSnapshot(vmImageHolder.bundle.copy)
     vmImageHolder.bundle
   }
 
