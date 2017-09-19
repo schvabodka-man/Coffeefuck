@@ -15,9 +15,9 @@ function newLine(currentLine, input) {
     resetInputLine(input);
 }
 
-function newInputArgsLine(currentline, input, program) {
+function newInputArgsLine(currentLine, input, program) {
     infoIO("Input arg $" + program.inputArgs.length);
-    newOutputLine(currentline, input.html());
+    newProgramLine(currentLine, input.html());
     resetInputLine(input);
 }
 
@@ -25,4 +25,8 @@ function newOutputLine(currentLine, text) {
     if (text.length != 0) {
         currentLine.before("<div class=\"output\">" + text + "</div>");
     }
+}
+
+function newProgramLine(currentLine, html) {
+    currentLine.before("<div class=\"output codeLine\">" + html + "</div>");
 }

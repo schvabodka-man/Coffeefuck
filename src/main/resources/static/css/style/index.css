@@ -113,6 +113,10 @@
     height: 100px;
 }
 
+#currentpoint {
+    background-color: #FFFFFF;
+}
+
 body {
     background-color: #2196f3;
     font-size: 1.2em;
