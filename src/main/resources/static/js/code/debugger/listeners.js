@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2017. scvh-man
+ * Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+
 function keyListener() {
     shiftEnterListener(function () {
         if (programInputMode) {
@@ -8,9 +13,9 @@ function keyListener() {
     });
 }
 
-function prevFrameListener(func) {
+function prevFrameListener() {
     $(document).on("keypress", function (e) {
-        if (e.shiftKey && e.keyCode == 13) {
+        if (e.keycode == 8) {
             prevStep();
         }
     });

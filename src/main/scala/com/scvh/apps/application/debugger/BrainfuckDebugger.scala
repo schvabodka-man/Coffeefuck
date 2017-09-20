@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2017. scvh-man
+ * Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+
 package com.scvh.apps.application.debugger
 
 import com.scvh.apps.application.debugger.reverse.VMSnaphotsHolder
@@ -27,7 +32,7 @@ class BrainfuckDebugger {
 
   def step(command: String): BrainfuckBundle = {
     command match {
-      case "prev" => snapshotManager.revertSnapshot()
+      case "prev" => prevStep
       case "next" => stepNext
     }
   }
@@ -35,6 +40,11 @@ class BrainfuckDebugger {
   private def stepNext: BrainfuckBundle = {
     vmImageHolder.update(interpreterManager.runFurther(vmImageHolder.bundle))
     snapshotManager.pushSnapshot(vmImageHolder.bundle.copy)
+    vmImageHolder.bundle
+  }
+
+  private def prevStep: BrainfuckBundle = {
+    vmImageHolder.update(snapshotManager.revertSnapshot())
     vmImageHolder.bundle
   }
 

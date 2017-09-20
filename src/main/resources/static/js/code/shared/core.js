@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2017. scvh-man
+ * Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+
 function inputHandler(currentLine, input, program) {
     if (program.code.length == 0) {
         program.setProgram(readInput(input));
@@ -24,7 +29,7 @@ function inputHandler(currentLine, input, program) {
     } else {
         warningIO("No input args specified");
         sendInput(program);
-        newLine(currentLine, input);
+        newProgramLine(currentLine, input.html());
     }
     return program;
 }
