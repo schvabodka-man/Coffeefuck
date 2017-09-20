@@ -76,10 +76,13 @@ function checkError(response) {
                 return true;
             } else if (message.explanation == "Stop playing with protocol") {
                 error("Server connection error");
+                return true;
             } else if (message.explanation == "Not enough args") {
                 errorExec("Not enough args for input");
+                return true;
             } else {
-                return false;
+                error("Unknown error");
+                return true;
             }
         } else {
             return false;
