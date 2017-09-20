@@ -24,4 +24,12 @@ class VMSnaphotsHolder {
     snapshots = snapshots.filter((bundle: BrainfuckBundle) => !(bundle == snapshots.head))
     cached
   }
+
+  def canRevert(): Boolean = {
+    if (snapshots.length == 1) {
+      false
+    } else {
+      true
+    }
+  }
 }

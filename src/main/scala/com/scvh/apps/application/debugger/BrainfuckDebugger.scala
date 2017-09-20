@@ -44,8 +44,12 @@ class BrainfuckDebugger {
   }
 
   private def prevStep: BrainfuckBundle = {
-    vmImageHolder.update(snapshotManager.revertSnapshot())
-    vmImageHolder.bundle
+    if (snapshotManager.canRevert()) {
+      vmImageHolder.update(snapshotManager.revertSnapshot())
+      vmImageHolder.bundle
+    } else {
+      null
+    }
   }
 
 }

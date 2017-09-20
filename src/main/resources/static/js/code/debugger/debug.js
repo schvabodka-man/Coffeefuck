@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2017. scvh-man
+ * Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+
 var connection = null;
 var client = null;
 
@@ -11,8 +16,10 @@ function makeConnection() {
 function connectToServer() {
     client.connect({}, function (frame) {
         client.subscribe('/debugout', function (response) {
-            populateUIWithResult(response);
-            checkIfProgramEnded(response);
+            if (!checkError(response)) {
+                populateUIWithResult(response);
+                checkIfProgramEnded(response);
+            }
         });
     });
 }
@@ -55,5 +62,27 @@ function checkIfProgramEnded(data) {
         cachedProgram = new Program();
         $("#liveOutput").hide();
         $("#inputholder").show();
+    }
+}
+
+function checkError(response) {
+    if (JSON.parse(response.body).vm != null) {
+        return false;
+    } else {
+        var message = JSON.parse(response.body);
+        if (message.code == 400) {
+            if (message.explanation == "Can't decrement") {
+                errorExec("Cannot go back any further");
+                return true;
+            } else if (message.explanation == "Stop playing with protocol") {
+                error("Server connection error");
+            } else if (message.explanation == "Not enough args") {
+                errorExec("Not enough args for input");
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }

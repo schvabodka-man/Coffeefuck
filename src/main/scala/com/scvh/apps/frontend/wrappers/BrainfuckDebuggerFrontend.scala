@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2017. scvh-man
+ * Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+
 package com.scvh.apps.frontend.wrappers
 
 import com.scvh.apps.application.debugger.BrainfuckDebugger
@@ -16,12 +21,21 @@ class BrainfuckDebuggerFrontend {
   @Qualifier("userPlayingWithJs")
   var USER_BREAKING_STUFF: JsonAnswer = _
 
+  @Autowired
+  @Qualifier("cannotDecrementAnyFurther")
+  var CANNOT_DECREMENT: JsonAnswer = _
+
   def debug(jsonInput: JsonDebuggerProtocol): JsonAnswer = {
     jsonInput.command match {
       case "next" => constructAnswer(debuggerBackend.step("next"))
-      case "prev" => constructAnswer(debuggerBackend.step("prev"))
+      case "prev" =>
+        val bundled = Option[BrainfuckBundle](debuggerBackend.step("prev"))
+        bundled match {
+          case Some(bundle) => constructAnswer(bundle)
+          case None => CANNOT_DECREMENT
+        }
       case "init" => constructAnswer(debuggerBackend.init(jsonInput.app, jsonInput.args))
-      case default => USER_BREAKING_STUFF
+      case default => USER_BREAKING_STUFF //this stuff would be called if someone's is sending wrong messages
     }
   }
 
