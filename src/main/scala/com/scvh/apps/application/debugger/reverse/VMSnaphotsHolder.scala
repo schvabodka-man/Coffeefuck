@@ -5,15 +5,18 @@
 
 package com.scvh.apps.application.debugger.reverse
 
+import java.util
+
 import com.scvh.apps.application.interpreter.BrainfuckBundle
 import org.springframework.stereotype.Component
 
-import scala.collection.immutable.Stack
-
+/*
+ * Holds snapshots history for the app execution process
+ */
 @Component
 class VMSnaphotsHolder {
 
-  var snapshots = Stack[BrainfuckBundle]()
+  var snapshots = util.Stack[BrainfuckBundle]()
 
   def pushSnapshot(snapshot: BrainfuckBundle) = {
     snapshots = snapshots.push(snapshot)

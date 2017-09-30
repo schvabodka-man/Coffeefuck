@@ -10,6 +10,10 @@ import com.scvh.apps.application.interpreter.BrainfuckBundle
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
+/*
+ * Debugger backend itself
+ * Pretty neat
+ */
 @Component
 class BrainfuckDebugger {
 
@@ -25,11 +29,22 @@ class BrainfuckDebugger {
   @Autowired
   var snapshotManager: VMSnaphotsHolder = _
 
+  /*
+   * Inject program and run one step at begin
+   * @param proram app itself
+   * @param input args for it
+   */
   def init(program: String, input: Array[String]) = {
     vmImageHolder.update(bundleBuilder.buildBundle(program, input))
     step("next")
   }
 
+
+  /*
+   * Do one step
+   * @param command debugger command
+   * @return data bundle
+   */
   def step(command: String): BrainfuckBundle = {
     command match {
       case "prev" => prevStep
@@ -48,7 +63,7 @@ class BrainfuckDebugger {
       vmImageHolder.update(snapshotManager.revertSnapshot())
       vmImageHolder.bundle
     } else {
-      null
+      null //null instead of throwing for functional error handling without side effects
     }
   }
 

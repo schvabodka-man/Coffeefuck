@@ -11,6 +11,9 @@ import com.scvh.apps.frontend.json.{JsonAnswer, JsonAnswerVM, JsonDebuggerProtoc
 import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
 import org.springframework.stereotype.Component
 
+/*
+ * Frontend for debugger
+ */
 @Component
 class BrainfuckDebuggerFrontend {
 

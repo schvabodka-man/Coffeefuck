@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2017. scvh-man
+ * Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+
+/*
+ * App class. App is user input
+ */
 function Program() {
     this.code = "";
     this.inputArgs = Array();
@@ -28,6 +36,9 @@ function Program() {
     };
 }
 
+/*
+ * Simply answer from server
+ */
 function Answer(output, memoryPoint, currentMemBlock, memDump) {
     this.output = output;
     this.memoryPoint = memoryPoint;
@@ -35,5 +46,6 @@ function Answer(output, memoryPoint, currentMemBlock, memDump) {
     this.memDump = memDump;
 }
 
+//yes, global vars
 var result = new Answer();
 var cachedProgram = new Program();

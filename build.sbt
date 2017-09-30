@@ -41,10 +41,10 @@ javacOptions ++= Seq(
   "-g:vars"
 )
 
-resolvers ++= Seq(
-)
-
 libraryDependencies ++= Seq(
+  "org.scala-lang" % "scala-library" % "2.11.11" withSources(),
+  "org.scala-lang" % "scala-reflect" % "2.11.11" withSources(),
+  "org.scala-lang" % "scala-compiler" % "2.11.11" withSources(),
   "org.springframework.boot" % "spring-boot-starter" % "1.5.4.RELEASE" withSources(),
   "org.springframework.boot" % "spring-boot-starter-aop" % "1.5.4.RELEASE" withSources(),
   "org.springframework.boot" % "spring-boot-starter-cache" % "1.5.4.RELEASE" withSources(),
@@ -60,7 +60,6 @@ libraryDependencies ++= Seq(
   "org.scalatest" % "scalatest_2.11" % "3.0.3" % "test" withJavadoc() withSources(),
   "org.apache.commons" % "commons-text" % "1.1" withJavadoc() withSources(),
   "com.fasterxml.jackson.module" % "jackson-module-scala_2.11" % "2.8.9" withJavadoc() withSources(),
-  "org.scalatest" %% "scalatest" % "3.0.3" % Test withJavadoc() withSources(),
   "junit" % "junit" % "4.12" % Test
 )
 

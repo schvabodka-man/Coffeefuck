@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2017. scvh-man
+ * Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+
 package com.scvh.apps.presentetation.parsers
 
 import com.scvh.apps.application.interpreter.BrainfuckBundle
@@ -16,6 +21,5 @@ class InputPrettifier {
 
   def unescapeHtmlChars(code: String) = StringEscapeUtils.unescapeHtml3(code)
 
-  //TODO перенести эту проверку в brainfuckPresent
   def checkInput(input: Array[String]) = if (input == null) "" else input.mkString
 }

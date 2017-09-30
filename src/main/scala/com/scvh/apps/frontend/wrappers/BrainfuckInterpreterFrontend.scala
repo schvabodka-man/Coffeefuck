@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2017. scvh-man
+ * Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+
 package com.scvh.apps.frontend.wrappers
 
 import com.scvh.apps.application.interpreter.{BrainfuckBundle, BrainfuckInterpreter}
@@ -7,8 +12,11 @@ import com.scvh.apps.presentetation.validation.BrainfuckCodeValidator
 import org.springframework.beans.factory.annotation.{Autowired, Qualifier}
 import org.springframework.stereotype.Component
 
+/*
+ * Frontend for interpreter
+ */
 @Component
-class BrainfuckRunner {
+class BrainfuckInterpreterFrontend {
 
   @Autowired
   var brainfuckInterpreter: BrainfuckInterpreter = _

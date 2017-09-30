@@ -8,11 +8,17 @@ var client = null;
 
 var programInputMode = true;
 
+/*
+ * Makes websocket connection object
+ */
 function makeConnection() {
     connection = new SockJS('/debuginp');
     client = Stomp.over(connection);
 }
 
+/*
+ * Start websocket connection
+ */
 function connectToServer() {
     client.connect({}, function (frame) {
         client.subscribe('/debugout', function (response) {
@@ -54,6 +60,10 @@ function sendInput(program) {
     debuggerInit(program);
 }
 
+/*
+ * Checks if you can run any further
+ * @param data retrieved from server frame
+ */
 function checkIfProgramEnded(data) {
     if (!JSON.parse(data.body).anyFurther) {
         finalExec("Done!");
@@ -65,6 +75,10 @@ function checkIfProgramEnded(data) {
     }
 }
 
+/*
+ * Dumb error handling
+ * @param response server response
+ */
 function checkError(response) {
     if (JSON.parse(response.body).vm != null) {
         return false;

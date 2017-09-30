@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2017. scvh-man
+ * Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+
 package com.scvh.apps.application
 
 import com.scvh.apps.application.interpreter.brainruntime.BrainfuckMachineParameters
@@ -19,7 +24,6 @@ class BrainfuckInterpreterTest extends FlatSpec {
 
   @Autowired
   var brainfuck: BrainfuckInterpreter = _
-
 
   "interpreter" should "run simple app without loops and input" in {
     assert(brainfuck.brainfuckInterpreter(new BrainfuckBundle(new BrainfuckMachineParameters(SIMPLE_BRAINFUCK_APP, ""), false)).runtime.output == "$*!*")

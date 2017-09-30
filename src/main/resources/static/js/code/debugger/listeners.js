@@ -3,6 +3,10 @@
  * Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
+/*
+ * Init of keybind listeners
+ */
+
 function keyListener() {
     shiftEnterListener(function () {
         if (programInputMode) {
